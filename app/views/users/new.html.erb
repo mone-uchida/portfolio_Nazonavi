@@ -1,2 +1,25 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="user new">
+  <h3>新しいアカウントを作成</h3>
+  <%= form_with model: @user, local: true do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email ,"メールアドレス" %></th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password_digest ,"パスワード" %></th>
+        <td><%= f.text_field :password_digest %></td>
+      </tr>
+    </table>
+    <div>
+      <ul>
+        <li><%= f.submit "アカウントを作成" %></li>
+        <li><%= link_to "アカウントをお持ちの方はこちら", "/login" %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
