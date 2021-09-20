@@ -9,14 +9,29 @@ class UsersController < ApplicationController
     @user.profile = '未設定'
     if @user.save
       flash[:notice] = 'アカウントを作成しました'
-      redirect_to '/home'
+      redirect_to :home
     else
       flash[:notice] = '入力内容にエラーがあります'
-      render new_user_path
+      render :new_user
     end
+  end
+  
+  def login_form
   end
 
   def login
+    @user = User.find_by(
+      email: params[:email],
+      password_digest: params[:password_digest]
+    )
+    if @user
+      flash[:notice]='ログインしました'
+      redirect_to :home
+      session[:user_id] = @user.id
+    else
+      flash[:notice]='入力内容にエラーがあります'
+      render "login_form"
+    end
   end
 
   private
