@@ -1,19 +1,2 @@
 <h2>gmap</h2>
-<div>
-  <form>表示エリアを選択
-    <select id="area">
-      <option value="Hokkaido">北海道</option>
-      <option value="Tohoku">東北</option>
-      <option value="Kanto">関東</option>
-      <option value="Chubu">中部</option>
-      <option value="Kinki">近畿</option>
-      <option value="Shikoku">四国</option>
-      <option value="Chugoku">中国</option>
-      <option value="Kyushu">九州</option>
-      <option value="Okinawa">沖縄</option>
-    </select>
-    <input type="button" value="検索" onclick="onButtonClick();" />
-  </form>
-</div>
-<div id="map"></div>
-<%= javascript_pack_tag 'map' %>
+<%= react_component("Map") %>
