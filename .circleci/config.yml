@@ -61,7 +61,7 @@ workflows:
       - deploy:
           requires:
             - build
-  deploy_application:
+  deploy:
     jobs:
       - aws-code-deploy/deploy:
           application-name: MysterySearch
