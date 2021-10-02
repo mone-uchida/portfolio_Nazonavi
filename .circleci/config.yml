@@ -50,6 +50,7 @@ jobs:
 
 orbs:
   aws-code-deploy: circleci/aws-code-deploy@2.0.0
+  build-tools: circleci/build-tools@2.9.1
   jq: circleci/jq@1.9.1
 workflows:
   version: 2.1
@@ -59,3 +60,9 @@ workflows:
       - deploy:
           requires:
             - build
+  deploy_application:
+    jobs:
+      - aws-code-deploy/deploy:
+          application-name: MysterySearch
+          bundle-bucket: mysterysearch
+          bundle-key: <%= ENV["AWS_ACCESS_KEY"] %>
