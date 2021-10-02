@@ -47,6 +47,12 @@ jobs:
           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+  deploy:
+    jobs:
+      - aws-code-deploy/deploy:
+          application-name: MysterySearch
+          bundle-bucket: mysterysearch
+          bundle-key: <%= ENV["AWS_ACCESS_KEY"] %>
 
 orbs:
   aws-code-deploy: circleci/aws-code-deploy@2.0.0
@@ -54,16 +60,12 @@ orbs:
   jp: circleci/jq@2.2.0
 workflows:
   version: 2.1
-  build:
+  build-test-and-deploy:
     jobs:
-      - rspec
-      - rubocop
-      - deploy:
-          requires:
-            - build
-  deploy:
-    jobs:
-      - aws-code-deploy/deploy:
-          application-name: MysterySearch
-          bundle-bucket: mysterysearch
-          bundle-key: <%= ENV["AWS_ACCESS_KEY"] %>
+      - build
+      - test:
+        - rspec
+        - rubocop
+        - deploy:
+            requires:
+              - build
