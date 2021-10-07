@@ -81,6 +81,5 @@ workflows:
           cluster-name: 'app' 
           container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
           requires: 
-            - aws-build 
             - rspec 
             - rubocop 
