@@ -83,7 +83,7 @@ workflows:
       - aws-build
       - rspec 
       - rubocop 
-       - aws-deploy: 
+      - aws-deploy: 
           requires: 
             - aws-build 
             - rspec 
