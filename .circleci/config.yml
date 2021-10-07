@@ -5,12 +5,12 @@ orbs:
 workflows:
   build-test-and-deploy:
     jobs:
-      aws-ecr/build_and_push_image:
+      - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
           repo: 'portfolio'
           tag: '${CIRCLE_SHA1}'
  
-      rspec:
+      - rspec:
         working_directory: ~/mysterysearch
         docker:
           - image: circleci/ruby
@@ -35,7 +35,7 @@ workflows:
               name: Run rspec
               command: docker-compose exec mysterysearch rspec
     
-      rubocop:
+      - rubocop:
         working_directory: ~/mysterysearch
         docker:
           - image: circleci/ruby:2.7.3
@@ -58,7 +58,7 @@ workflows:
               paths:
                 - vendor/bundle
     
-      aws-ecs/deploy-service-update:
+      - aws-ecs/deploy-service-update:
                 requires:
                   - aws-ecr/build_and_push_image
                 family: 'mysterysearch_app'
