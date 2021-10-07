@@ -70,7 +70,7 @@ jobs:
     working_directory: ~/mysterysearch 
     docker: 
       - image: circleci/ruby 
-     steps: 
+    steps: 
       - aws-ecs/run-task: 
           family: 'mysterysearch_app' 
           cluster-name: 'app' 
