@@ -1,84 +1,83 @@
-version: '2.1'
-jobs:
-  aws-ecr/build_and_push_image:
-    working_directory: ~/mysterysearch
-    docker:
-      - image: circleci/ruby
-    account-url: AWS_ECR_ACCOUNT_URL
-    aws-access-key-id: AWS_ACCESS_KEY
-    aws-secret-access-key: AWS_SECRET_KEY
-    context: myContext
-    repo: 'portfolio'
-    tag: '${CIRCLE_SHA1}'
-    region: AWS_REGION
+version: 2.1 
+jobs: 
+  aws-ecr/build_and_push_image: 
+    docker: 
+      - image: circleci/ruby 
+    account-url: AWS_ECR_ACCOUNT_URL 
+    aws-access-key-id: AWS_ACCESS_KEY 
+    aws-secret-access-key: AWS_SECRET_KEY 
+    context: myContext 
+    repo: 'portfolio' 
+    tag: '${CIRCLE_SHA1}' 
+    region: AWS_REGION 
 
-  rspec:
-    working_directory: ~/mysterysearch
-    docker:
-      - image: circleci/ruby
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Setup environment variable
-          command: |
-            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
-      - run:
-          name: Start containers and verify it is working
-          command: |
-            set -x
-            docker-compose up -d
-            docker exec mysterysearch curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
-      - run:
-          name: Setup database
-          command: |
-            docker-compose exec mysterysearch bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
-      - run:
-          name: Run rspec
-          command: docker-compose exec mysterysearch rspe
+  rspec: 
+    working_directory: ~/mysterysearch 
+    docker: 
+      - image: circleci/ruby 
+    steps: 
+      - checkout 
+      - setup_remote_docker 
+      - run: 
+          name: Setup environment variable 
+          command: | 
+            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV 
+      - run: 
+          name: Start containers and verify it is working 
+          command: | 
+            set -x 
+            docker-compose up -d 
+            docker exec mysterysearch curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000 
+      - run: 
+          name: Setup database 
+          command: | 
+            docker-compose exec mysterysearch bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept' 
+      - run: 
+          name: Run rspec 
+          command: docker-compose exec mysterysearch rspec 
 
-  rubocop:
-    working_directory: ~/mysterysearch
-    docker:
-      - image: circleci/ruby
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gemfiles-{{ .Branch }}-
-            - gemfiles-master-
-      - run: bundle config --local path vendor/bundle
-      - run:
-          name: bundle install
-          command: bundle check || bundle install --jobs=8 --clean
-      - run:
-          name: Run rubocop
-          command: bundle exec rubocop --parallel
-      - save_cache:
-          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+  rubocop: 
+    working_directory: ~/mysterysearch 
+    docker: 
+      - image: circleci/ruby 
+    steps: 
+      - checkout 
+      - restore_cache: 
+          keys: 
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
+            - gemfiles-{{ .Branch }}- 
+            - gemfiles-master- 
+      - run: bundle config --local path vendor/bundle 
+      - run: 
+          name: bundle install 
+          command: bundle check || bundle install --jobs=8 --clean 
+      - run: 
+          name: Run rubocop 
+          command: bundle exec rubocop --parallel 
+      - save_cache: 
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
+          paths: 
+            - vendor/bundle 
 
-  aws-ecs/deploy-service-update:
-    working_directory: ~/mysterysearch
-    docker:
-      - image: circleci/ruby
-    family: 'mysterysearch_app'
-    cluster-name: 'app'
-    container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}'
+  aws-ecs/deploy-service-update: 
+    working_directory: ~/mysterysearch 
+    docker: 
+      - image: circleci/ruby 
+    family: 'mysterysearch_app' 
+    cluster-name: 'app' 
+    container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
 
-orbs:
-  aws-ecr: circleci/aws-ecr@7.2.0
-  aws-ecs: circleci/aws-ecs@2.2.1
-workflows:
-  version: '2.1'
-  build-test-and-deploy:
-    jobs:
-      - aws-ecr/build_and_push_image
-      - rspec
-      - rubocop
-      - aws-ecs/deploy-service-update:
-          requires:
-            - rspec
-            - rubocop
+orbs: 
+  aws-ecr: circleci/aws-ecr@7.2.0 
+  aws-ecs: circleci/aws-ecs@2.2.1 
+workflows: 
+  version: 2.1 
+  build-test-and-deploy: 
+    jobs: 
+      - aws-ecr/build_and_push_image 
+      - rspec 
+      - rubocop 
+      - aws-ecs/deploy-service-update: 
+          requires: 
+            - rspec 
+            - rubocop 
