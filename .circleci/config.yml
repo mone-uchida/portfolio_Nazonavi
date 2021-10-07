@@ -1,15 +1,22 @@
 version: 2.1 
+orbs: 
+  aws-ecr: circleci/aws-ecr@7.2.0 
+  aws-ecs: circleci/aws-ecs@2.2.1 
+
 jobs: 
-  aws-ecr/build_and_push_image: 
+  aws-build: 
+    working_directory: ~/mysterysearch 
     docker: 
       - image: circleci/ruby 
-    account-url: AWS_ECR_ACCOUNT_URL 
-    aws-access-key-id: AWS_ACCESS_KEY 
-    aws-secret-access-key: AWS_SECRET_KEY 
-    context: myContext 
-    repo: 'portfolio' 
-    tag: '${CIRCLE_SHA1}' 
-    region: AWS_REGION 
+    steps: 
+      - aws-ecr/aws-build: 
+          account-url: AWS_ECR_ACCOUNT_URL 
+          aws-access-key-id: AWS_ACCESS_KEY 
+          aws-secret-access-key: AWS_SECRET_KEY 
+          context: myContext 
+          repo: 'portfolio' 
+          tag: '${CIRCLE_SHA1}' 
+          region: AWS_REGION 
 
   rspec: 
     working_directory: ~/mysterysearch 
@@ -59,25 +66,25 @@ jobs:
           paths: 
             - vendor/bundle 
 
-  aws-ecs/deploy-service-update: 
+  aws-deploy: 
     working_directory: ~/mysterysearch 
     docker: 
       - image: circleci/ruby 
-    family: 'mysterysearch_app' 
-    cluster-name: 'app' 
-    container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
+     steps: 
+      - aws-ecs/run-task: 
+          family: 'mysterysearch_app' 
+          cluster-name: 'app' 
+          container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
 
-orbs: 
-  aws-ecr: circleci/aws-ecr@7.2.0 
-  aws-ecs: circleci/aws-ecs@2.2.1 
 workflows: 
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
-      - aws-ecr/build_and_push_image 
+      - aws-build
       - rspec 
       - rubocop 
-      - aws-ecs/deploy-service-update: 
+       - aws-deploy: 
           requires: 
+            - aws-build 
             - rspec 
             - rubocop 
