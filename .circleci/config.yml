@@ -4,20 +4,6 @@ orbs:
   aws-ecs: circleci/aws-ecs@2.2.1 
 
 jobs: 
-  aws-build: 
-    working_directory: ~/mysterysearch 
-    docker: 
-      - image: circleci/ruby 
-    steps: 
-      - aws-ecr/aws-build: 
-          account-url: AWS_ECR_ACCOUNT_URL 
-          aws-access-key-id: AWS_ACCESS_KEY 
-          aws-secret-access-key: AWS_SECRET_KEY 
-          context: myContext 
-          repo: 'portfolio' 
-          tag: '${CIRCLE_SHA1}' 
-          region: AWS_REGION 
-
   rspec: 
     working_directory: ~/mysterysearch 
     docker: 
@@ -80,7 +66,14 @@ workflows:
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
-      - aws-build
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL 
+          aws-access-key-id: AWS_ACCESS_KEY 
+          aws-secret-access-key: AWS_SECRET_KEY 
+          context: myContext 
+          repo: 'portfolio' 
+          tag: '${CIRCLE_SHA1}' 
+          region: AWS_REGION 
       - rspec 
       - rubocop 
       - aws-deploy: 
