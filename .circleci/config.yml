@@ -52,16 +52,6 @@ jobs:
           paths: 
             - vendor/bundle 
 
-  aws-deploy: 
-    working_directory: ~/mysterysearch 
-    docker: 
-      - image: circleci/ruby 
-    steps: 
-      - aws-ecs/run-task: 
-          family: 'mysterysearch_app' 
-          cluster-name: 'app' 
-          container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
-
 workflows: 
   version: 2.1 
   build-test-and-deploy: 
