@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_062741) do
+ActiveRecord::Schema.define(version: 2021_10_14_091548) do
+
+  create_table "events", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "title_id"
+    t.date "start_at"
+    t.date "finish_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "lat"
+    t.string "lng"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.integer "price"
+    t.string "url"
+    t.string "source"
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "time"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
