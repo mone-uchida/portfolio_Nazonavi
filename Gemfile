@@ -59,3 +59,5 @@ gem "dotenv-rails"
 gem 'geocoder'
 gem 'react-rails'
 gem "aws-sdk-s3", require: false
+gem 'devise'
+gem 'activeadmin'
