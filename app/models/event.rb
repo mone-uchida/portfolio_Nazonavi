@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   delegate :lat,
           :lng,
           to: :spot
-          
+  
   delegate :name,
           :image,
           to: :title
