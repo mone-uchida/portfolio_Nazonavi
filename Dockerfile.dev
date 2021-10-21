@@ -24,6 +24,7 @@ RUN apt-get update \
     nodejs \
     yarn \
     zip \
+    vim \
   && gem install foreman \
   && apt-get clean \
 
