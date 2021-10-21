@@ -34,6 +34,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.profile = params[:profile]
+    
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to :edit_user
+    else
+      render("users/edit")
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice]="ログアウトしました"
+    redirect_to("/")
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password_digest, :icon, :profile)
