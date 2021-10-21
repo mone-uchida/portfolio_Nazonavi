@@ -4,10 +4,16 @@ class Event < ApplicationRecord
 
   delegate :lat,
           :lng,
+          :place,
+          :address,
           to: :spot
   
   delegate :name,
           :image,
+          :price,
+          :url,
+          :note,
+          :source,
           to: :title
 
   with_options presence: true do
