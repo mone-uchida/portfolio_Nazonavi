@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/home',     to: 'home#index'
   get '/login',    to: 'users#login_form'
   post '/login',   to: 'users#login'
-  post '/logout' => 'users#logout'
+  post '/logout',  to: 'users#logout'
   resources :users
   resources :events
 end
