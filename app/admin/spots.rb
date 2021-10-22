@@ -1,3 +1,3 @@
 ActiveAdmin.register Spot do
-  permit_params :name, :address, :lat, :lng, :url
+  permit_params :place, :address, :lat, :lng, :url
 end
