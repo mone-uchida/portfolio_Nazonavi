@@ -10,22 +10,37 @@ window.initMap = function(){
       zoom: num
   }); 
   for (i = 0; i < gon.events.length; i++) {
-    let spotNum = gon.events[i].spot_id;
-    let titleNum = gon.events[i].title_id;
-    let markerLat = parseFloat(gon.spots[spotNum].lat);
-    let markerLng = parseFloat(gon.spots[spotNum].lng);
+    let Id = gon.events[i].id
+    let spotId = gon.events[i].spot_id;
+    let titleId = gon.events[i].title_id;
+    let markerLat = gon.spots[spotId -1].lat;
+    let markerLng = gon.spots[spotId -1].lng;
     marker = new google.maps.Marker({
       position: {lat: markerLat, lng: markerLng},
       map: map
     })
-    let name = gon.titles[titleNum].name
-    let image = gon.titles[titleNum].image
-    let startDate  = gon.events[i].start_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
-    let finishDate  = gon.events[i].finish_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
+    let name = gon.titles[titleId -1].name;
+    let image = gon.titles[titleId -1].image;
+    let imageUrl = gon.s3_url + image;
+    if (gon.events[i].start_at != null) {
+      var startDate  = gon.events[i].start_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
+    } else {
+      var startDate = "-"
+    }
+    if (gon.events[i].finish_at != null) {
+      var finishDate  = gon.events[i].finish_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
+    } else {
+      var finishDate = "-"
+    }
     let infoWindow = new google.maps.InfoWindow({
-        content:'<div id="infowindow"><h2>' + name + 
-                '</h2><p>開催期間</p><p>' + startDate + '~</p><p>' + finishDate +
-                '</p><img src="https://' + gon.s3_url + '/titles/event_image/' + image + '" arign="left" id="marker_image"></div>'
+        content: `<div id="infowindow">
+                   <h2>${name}</h2>
+                   <p>開催期間</p>
+                   <p>${startDate}~</p>
+                   <p>${finishDate}</p>
+                   <img src="${imageUrl}" arign="left" id="marker_image">
+                   <a href="/events/${Id}">詳細ページ</a>
+                  </div>`
     });
     infoWindow.open(map, marker);
   };
