@@ -3,10 +3,10 @@ class HomeController < ApplicationController
   end
 
   def index
-    @events = Event.where("finish_at >= ? OR finish_at = ?", Date.today, [])
+    @events = Event.where("finish_at >= ? OR finish_at is null", Date.today).order(id: :asc)
     gon.events = @events
-    gon.spots = Spot.all.select(:lat, :lng)
-    gon.titles = Title.all.select(:name, :image)
-    gon.s3_url = Rails.application.credentials.aws[:s3_URL]
+    gon.spots = Spot.all.select(:lat, :lng).order(id: :asc)
+    gon.titles = Title.all.select(:name, :image).order(id: :asc)
+    gon.s3_url = "https://#{Rails.application.credentials.aws[:s3_URL]}/titles/event_image/"
   end
 end
