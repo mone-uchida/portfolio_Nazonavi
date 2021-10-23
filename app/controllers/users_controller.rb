@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user.profile = '未設定'
     if @user.save
       flash[:notice] = 'アカウントを作成しました'
-      redirect_to :home
+      redirect_to :login
     else
       flash[:notice] = '入力内容にエラーがあります'
       render :new_user
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
     )
     if @user
       flash[:notice]='ログインしました'
+      log_in user
       redirect_to :home
-      session[:user_id] = @user.id
     else
       flash[:notice]='入力内容にエラーがあります'
       render "login_form"
@@ -51,10 +51,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def logout
-    session[:user_id] = nil
+  def destroy
+    log_out
     flash[:notice]="ログアウトしました"
-    redirect_to("/")
+    redirect_to("/home")
   end
 
   private
