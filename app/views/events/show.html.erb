@@ -14,7 +14,7 @@
     <% if @related_events.present? %>
       <p>別会場での開催日程</p>
       <% @related_events.each do |related_event| %>
-        <%= link_to related_event.place,event_path(related_event.id) %>
+        <%= link_to related_event.place,spot_path(related_event.spot_id) %>
         <%= related_event.start_at %>
         <%= related_event.finish_at %>
       <% end %>

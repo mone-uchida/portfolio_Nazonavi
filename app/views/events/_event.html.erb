@@ -1,7 +1,7 @@
 <div>
   <tr>
     <td><img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= event.image %>" ></td>
-    <td><%= event.name %></td>
+    <td><%= link_to event.name,event_path(event) %></td>
     <td>ひとり<%= event.price %>円程度</td>
     <td><%= event.address %></td>
     <td><%= event.start_at %></td>
