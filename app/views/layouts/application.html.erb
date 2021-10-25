@@ -15,11 +15,13 @@
       <%= flash[:notice] %>
     <% end %>
     <% unless current_page?("/") %>
+    <h1><a href='/home'>謎解き検索</a></h1>
       <% if logged_in? %>
-        <%= react_component 'UsersHeader', user: @current_user %>
+        <%= react_component 'UsersMenu', user: @current_user %>
         <%= link_to "ログアウト", logout_path, method: "delete" %>
       <% else %>
-        <%= react_component 'GuestsHeader' %>
+        <%= link_to "ログイン", login_path %>
+        <%= link_to "新規登録", new_user_path %>
       <% end %>
     <% end %>
     <%= yield %>
