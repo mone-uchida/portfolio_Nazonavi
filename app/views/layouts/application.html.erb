@@ -12,14 +12,15 @@
   </head>
   <body>
     <% unless current_page?("/") %>
-      <h1><a href='/home'>謎解き検索</a></h1>
-      <% if logged_in? %>
-        <%= react_component 'UsersMenu', user: @current_user %>
-        <%= link_to "ログアウト", logout_path, method: "delete" %>
-      <% else %>
-        <%= link_to "ログイン", login_path %>
-        <%= link_to "新規登録", new_user_path %>
-      <% end %>
+    　<header>
+        <h1><a href='/home'>謎解き検索</a></h1>
+        <% if logged_in? %>
+          <%= image_tag @current_user.icon, class: "user-icon" %>
+          <p className="user-name">ログインユーザー: <%= @current_user.name %>さん</p>
+          <%= react_component 'UsersMenu', user: @current_user %>
+        <% end %>
+        <%= render partial: "layouts/header_nav" %>
+      </header>
     <% end %>
     <% if flash[:notice] %>
       <%= flash[:notice] %>
