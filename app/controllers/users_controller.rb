@@ -20,11 +20,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(
+    user = User.find_by(
       email: params[:email],
       password_digest: params[:password_digest]
     )
-    if @user
+    if user
       flash[:notice]='ログインしました'
       log_in user
       redirect_to :home
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
+    @user.icon = params[:icon]
     @user.profile = params[:profile]
     
     if @user.save
