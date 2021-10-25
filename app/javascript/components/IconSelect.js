@@ -49,7 +49,7 @@ class IconSelect extends React.Component {
     let select;
     if (this.state.OpenSelect) {
         select = (
-          <div className="icon_select">
+          <div className="icon-select">
             {icons.map((icon) =>
               <img 
                 src={ icon.pct }
@@ -60,7 +60,7 @@ class IconSelect extends React.Component {
             <div>選択中のアイコン</div>
             <img 
               src={ this.state.Iconpath }
-              className="select_image"
+              className="select-image"
             />
           </div>
         );

@@ -38,7 +38,7 @@ window.initMap = function(){
                    <p>開催期間</p>
                    <p>${startDate}~</p>
                    <p>${finishDate}</p>
-                   <img src="${imageUrl}" arign="left" id="marker_image">
+                   <img src="${imageUrl}" arign="left" id="marker-image">
                    <a href="/events/${Id}">詳細ページ</a>
                   </div>`
     });

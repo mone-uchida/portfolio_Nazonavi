@@ -9,27 +9,23 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
     width: 75vw;
     height: calc(75vw * 0.60);
 }
-#marker_image{
+#marker-image{
     width: 65px;
     height: 80px;
 }
 
-#user_icon{
+#user-icon{
     width:10%;
     height: width;
 }
 
-.icon_select img{
+.icon-select img{
   width: 7%;
-  height: width;
-}
-
-.select_icon img{
-  width: 8%;
   height: width;
   cursor: pointer;
 }
 
-.select_icon img:hover{
-cursor: pointer;
+.select-image img{
+  width: 8%;
+  height: width;
 }
