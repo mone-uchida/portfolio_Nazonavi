@@ -70,7 +70,7 @@ class IconSelect extends React.Component {
     return (
       <tr>
         <th>
-          <label for="icon">アイコン</label>
+          <label>アイコン</label>
         </th>
         <td>
           <input id="icon" name="icon" type="text" value={ this.state.Icon } id="icon"　hidden />

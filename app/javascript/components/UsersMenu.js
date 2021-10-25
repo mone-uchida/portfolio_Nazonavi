@@ -34,14 +34,9 @@ class UsersMenu extends React.Component {
       );
     }
     return (
-      <div>
-        <p className="user_name">{ this.props.user.name }</p>
-        <div className="icon">
-        </div>
-        <div className="menu">
-          { button }
-          { menu }
-        </div>
+      <div className="menu">
+        { button }
+        { menu }
       </div>
     );
   }
