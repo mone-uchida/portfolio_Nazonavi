@@ -1,6 +1,6 @@
 import React from 'react'
 
-class UsersHeader extends React.Component {
+class UsersMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,6 @@ class UsersHeader extends React.Component {
     }
     return (
       <div>
-        <h1><a href='/home'>謎解き検索</a></h1>
         <p className="user_name">{ this.props.user.name }</p>
         <div className="icon">
         </div>
@@ -48,4 +47,4 @@ class UsersHeader extends React.Component {
   }
 }
   
-export default UsersHeader
+export default UsersMenu
