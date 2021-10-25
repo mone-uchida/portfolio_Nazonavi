@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'events/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get '/',            to: 'home#top'
@@ -8,5 +7,6 @@ Rails.application.routes.draw do
   post '/login',      to: 'users#login'
   delete '/logout',   to: 'users#destroy'
   resources :users
-  resources :events
+  resources :events, only: [:index, :show]
+  resources :spots, only: [:index, :show]
 end

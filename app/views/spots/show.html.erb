@@ -1,0 +1,16 @@
+<div class="spot show">
+  <tr>
+    <td><%= @spot.place %></td>
+    <td><%= @spot.address %></td>
+    <td><%= @spot.url %></td>
+  </tr>
+  <div>
+    <p>開催中の公演</p>
+    <ul>
+      <% @related_events.each do |event| %>
+        <li><%= link_to event.name, event_path(event.id) %></li>
+        <li><%= event.start_at %></li>
+        <li><%= event.finish_at %></li>
+      <% end %>
+    </ul>
+</div>
