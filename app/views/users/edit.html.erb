@@ -7,13 +7,7 @@
           <th><%= f.label :name ,"名前" %></th>
           <td><%= f.text_field :name, value: @user.name %></td>
         </tr>
-        <tr>
-          <th><%= f.label :image ,"ユーザーアイコン" %></th>
-          <td>
-            <%= image_tag @user.icon %>
-            <%= f.file_field :image %>
-          </td>
-        </tr>
+        <%= react_component 'IconSelect', user: @user %>
         <tr>
           <th><%= f.label :profile ,"プロフィール" %></th>
           <td><%= f.text_field :profile, value: @user.profile %></td>
