@@ -21,14 +21,69 @@ ul{
 }
 
 /* header */
-.user-icon{
-  border-radius: 50%;
-  width:  45px;
-  height: 45px;
+header{
+  height: 120px;
+  width: 100%;
 }
 
-header button{
+.header-wrapper{
+  height:70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+header a{
+  text-decoration: none;
   cursor: pointer;
+}
+
+.header-logo{
+  flex-basis: 60%;
+}
+
+.header-menu{
+  flex-basis: 15%;
+}
+
+.header-usericon{
+  flex-basis: 5%;
+  border-radius: 50%;
+}
+
+.header-username{
+  flex-basis: 20%;
+}
+
+.user-icon{
+  height: 3.8rem;
+  width: height;
+  border-radius: 50%;
+}
+
+.menu .button{
+  font-size: large;
+  position: absolute;
+  top: 3.3rem;
+  right: 3rem;
+}
+
+.menu-item{
+  position: relative;
+  top: 2.5rem;
+  padding: 0;
+}
+
+.header-nav{
+  height: 50px;
+}
+
+.nav-items{
+  display: flex;
+  justify-content: space-between;
 }
 
 /* main - top */
@@ -37,9 +92,24 @@ header button{
     width: 75vw;
     height: calc(75vw * 0.60);
 }
-#marker-image{
-    width: 65px;
-    height: 80px;
+
+#infowindow h2{
+  font-size: 13px;
+}
+
+#infowindow p{
+  display: inline-block;
+}
+
+#infowindow img{
+  float: right;
+  width: 70px;
+  height:95px;
+  display: inline;
+}
+
+#infowindow a{
+  display: inline-block;
 }
 
 /* main - user - edit */

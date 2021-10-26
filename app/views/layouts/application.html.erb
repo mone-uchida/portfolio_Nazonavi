@@ -13,12 +13,22 @@
   <body>
     <% unless current_page?("/") %>
     　<header>
-        <h1><a href='/home'>謎解き検索</a></h1>
-        <% if logged_in? %>
-          <%= image_tag @current_user.icon, class: "user-icon" %>
-          <p className="user-name">ログインユーザー: <%= @current_user.name %>さん</p>
-          <%= react_component 'UsersMenu', user: @current_user %>
-        <% end %>
+        <div class="header-wrapper">
+          <div class="header-logo">
+            <h1><a href='/home'>謎解き検索</a></h1>
+          </div>
+          <% if logged_in? %>
+            <div class="header-usericon">
+              <%= image_tag @current_user.icon, class: "user-icon" %>
+            </div>
+            <div class="header-username">
+              <p className="user-name">ログインユーザー: <%= @current_user.name %>さん</p>
+            </div>
+            <div class="header-menu">
+              <%= react_component 'UsersMenu', user: @current_user %>
+            </div>
+          <% end %>
+        </div>
         <%= render partial: "layouts/header_nav" %>
       </header>
     <% end %>

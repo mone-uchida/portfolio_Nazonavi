@@ -19,16 +19,16 @@ class UsersMenu extends React.Component {
   render() {
     let button;
     if (this.state.OpenMenu) {
-      button = <a className= "button" onClick={() => this.handleMenuClose()}><i className="fas fa-bars"></i></a>;
+      button = <a className= "button" onClick={() => this.handleMenuClose()}><i className="fas fa-bars fa-lg"></i></a>;
     } else {
-      button = <a className= "button" onClick={() => this.handleMenuOpen()}><i className="fas fa-bars"></i></a>;
+      button = <a className= "button" onClick={() => this.handleMenuOpen()}><i className="fas fa-bars fa-lg"></i></a>;
     }
     let menu;
     if (this.state.OpenMenu) {
       menu = (
-        <ul>
-          <li><a href={'/users/' + this.props.user.id + '/like'}>行きたい！イベント</a></li>
-          <li><a href={'/users/' + this.props.user.id + '/record'}>謎解きログ</a></li>
+        <ul class="menu-item">
+          <li><a href={'/users/' + this.props.user.id + '/like'}>お気に入り</a></li>
+          <li><a href={'/users/' + this.props.user.id + '/post'}>投稿一覧</a></li>
           <li><a href={'/users/' + this.props.user.id + '/edit'}>設定</a></li>
         </ul>
       );

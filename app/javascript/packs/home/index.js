@@ -34,12 +34,13 @@ window.initMap = function(){
     }
     let infoWindow = new google.maps.InfoWindow({
         content: `<div id="infowindow">
-                   <h2>${name}</h2>
-                   <p>開催期間</p>
-                   <p>${startDate}~</p>
-                   <p>${finishDate}</p>
-                   <img src="${imageUrl}" arign="left" id="marker-image">
-                   <a href="/events/${Id}">詳細ページ</a>
+                    <h2>${name}</h2>
+                    <p>開催期間<br>
+                      ${startDate}~<br>
+                      ${finishDate}
+                    </p>
+                    <a href="/events/${Id}">詳細</a>
+                    <img src="${imageUrl}" arign="left">
                   </div>`
     });
     infoWindow.open(map, marker);
