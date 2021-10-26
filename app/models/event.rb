@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :spot
   belongs_to :title
+  has_many :favorite
 
   delegate :lat,
           :lng,
