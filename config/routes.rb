@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete '/logout',       to: 'users#destroy'
   post 'favorite/:id',    to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id',  to: 'favorites#destroy', as: 'destroy_favorite'
-  resources :users
+  resources :users do
+    resources :favorites, only: [:index]
+  end
   resources :events, only: [:index, :show]
   resources :spots, only: [:index, :show]
 end

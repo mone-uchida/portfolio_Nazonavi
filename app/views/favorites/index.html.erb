@@ -1,0 +1,8 @@
+<h1>お気に入りに追加したイベント</h1>
+<%= render partial: "events/event", collection: @events %>
+<% if @finished_events.exists? %>
+  <h2>開催が終了したイベント</h2>
+  <div class="finished-events">
+    <%= render partial: "events/event", collection: @events %>
+  </div>
+<% end %>
