@@ -1,7 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :spot
   belongs_to :title
-  has_many :favorite
+  belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
 
   delegate :lat,
           :lng,
