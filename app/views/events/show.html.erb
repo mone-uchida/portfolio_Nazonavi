@@ -1,23 +1,24 @@
-<div>
-  <tr>
-    <td><img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" ></td>
-    <td><%= @event.name %></td>
-    <td>ひとり<%= @event.price %>円程度</td>
-    <td>会場　<%= @event.place %></td>
-    <td><%= @event.start_at %></td>
-    <td><%= @event.finish_at %></td>
-    <td><%= @event.url %></td>
-    <td><%= @event.note %></td>
-    <td><%= @event.source %></td>
-  </tr>
-  <div>
-    <% if @related_events.present? %>
-      <p>別会場での開催日程</p>
-      <% @related_events.each do |related_event| %>
-        <%= link_to related_event.place,spot_path(related_event.spot_id) %>
-        <%= related_event.start_at %>
-        <%= related_event.finish_at %>
-      <% end %>
-    <% end %>
+<tr>
+  <td><img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" ></td>
+  <td><%= @event.name %></td>
+  <div id="event_<%= @event.id %>">
+    <%= render "events/favorites_button", event: @event %>
   </div>
+  <td>ひとり<%= @event.price %>円程度</td>
+  <td>会場　<%= @event.place %></td>
+  <td><%= @event.start_at %></td>
+  <td><%= @event.finish_at %></td>
+  <td><%= @event.url %></td>
+  <td><%= @event.note %></td>
+  <td><%= @event.source %></td>
+</tr>
+<div>
+  <% if @related_events.present? %>
+    <p>別会場での開催日程</p>
+    <% @related_events.each do |related_event| %>
+      <%= link_to related_event.place,spot_path(related_event.spot_id) %>
+      <%= related_event.start_at %>
+      <%= related_event.finish_at %>
+    <% end %>
+  <% end %>
 </div>
