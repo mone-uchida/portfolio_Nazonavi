@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_074248) do
+ActiveRecord::Schema.define(version: 2021_10_27_082027) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_074248) do
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "event_id"], name: "index_favorites_on_user_id_and_event_id", unique: true
   end
 
   create_table "spots", force: :cascade do |t|
