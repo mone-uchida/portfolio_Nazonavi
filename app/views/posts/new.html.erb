@@ -1,0 +1,22 @@
+<div class="post new">
+  <h3>感想を投稿する</h3>
+  <%= form_with model: @post, local: true do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <th><%= f.label :title_id, "タイトル" %></th>
+          <% if @event.present? %>
+            <td><%= f.hidden_field :title_id, value: @event.title_id, readonly: true %><%= @event.name %></td>
+          <% else %>
+            <td><%= f.collection_select :title_id, Title.all, :id, :name, include_blank: "選択して下さい" %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th><%= f.label :content ,"投稿内容" %></th>
+          <td><%= f.text_field :content %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div><%= f.submit "投稿する" %></div>
+  <% end %>
+</div>
