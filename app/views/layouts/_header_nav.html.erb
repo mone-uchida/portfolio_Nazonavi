@@ -3,6 +3,7 @@
     <li><%= link_to "イベント", events_path %></li>
     <li><%= link_to "スポット", spots_path %></li>
     <% if logged_in? %>
+      <li><%= link_to "投稿する", new_post_path %></li>
       <li><%= link_to "ログアウト", logout_path, method: "delete" %></li>
     <% else %>
       <%= link_to "ログイン", login_path %>
