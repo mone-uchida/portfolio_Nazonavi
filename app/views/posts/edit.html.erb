@@ -1,0 +1,18 @@
+<div class="post new">
+  <h3>投稿を編集する</h3>
+  <%= form_with url:post_path(@post), model: @post, method: :patch, local: true do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <th><%= f.label :title_id, "タイトル" %></th>
+          <td><%= f.collection_select :title_id, Title.all, :id, :name, include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :content, "投稿内容" %></th>
+          <td><%= f.text_field :content, value: @post.content %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div><%= f.submit "編集を保存する" %></div>
+  <% end %>
+</div>
