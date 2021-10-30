@@ -1,23 +1,19 @@
-$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
-@import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/solid';
-@import '@fortawesome/fontawesome-free/scss/regular';
-@import '@fortawesome/fontawesome-free/scss/brands';
-@import '@fortawesome/fontawesome-free/scss/v4-shims';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 /*
-- header
-- footer
-- main
-     - top
-     - home
-     - user
-          -edit
-
+* - header
+* - footer
+* - main
+*    - top
+*    - home
+*    - user
+*         -edit
+*
+*
 */
 
 ul{
-  list-style: none;
+    list-style: none;
 }
 
 /* header */
