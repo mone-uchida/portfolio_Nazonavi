@@ -73,7 +73,7 @@ class IconSelect extends React.Component {
           <label>アイコン</label>
         </th>
         <td>
-          <input id="icon" name="icon" type="text" value={ this.state.Icon } id="icon"　hidden />
+          <input id="icon" name="icon" type="text" value={ this.state.Icon }　readOnly={true} hidden />
           { button }
           { select }
         </td>
