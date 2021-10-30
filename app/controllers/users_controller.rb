@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       render :new_user
     end
   end
-  
+
   def login_form
   end
 
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.icon = params[:icon]
     @user.profile = params[:profile]
-    
+
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to :edit_user
@@ -59,6 +59,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password_digest, :icon, :profile)
   end
