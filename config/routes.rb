@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   delete 'favorite/:id',  to: 'favorites#destroy', as: 'destroy_favorite'
   resources :users do
     resources :favorites, only: [:index]
+    resources :posts, only: [:index]
   end
+  resources :posts
   resources :events, only: [:index, :show]
   resources :spots, only: [:index, :show]
 end
