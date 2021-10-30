@@ -58,6 +58,10 @@ class UsersController < ApplicationController
     redirect_to("/home")
   end
 
+  def posts_index
+   @posts = Post.where(user_id: current_user.id).order(created_at: :desc)
+  end
+
   private
 
   def user_params
