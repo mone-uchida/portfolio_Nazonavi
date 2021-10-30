@@ -15,8 +15,7 @@ class FavoritesController < ApplicationController
     favorite = Favorite.find_by(user_id: current_user.id, event_id: params[:id])
     favorite.destroy
   end
-  
-  
+
   private
   
   def set_event
