@@ -32,15 +32,17 @@
         <%= render partial: "layouts/header_nav" %>
       </header>
     <% end %>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <main>
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
       <div class="right-section">
         <h2>人気のイベント</h2>
         <%= render partial: "layouts/popular_event", collection: popular_events %>
       </div>
-      <%= yield %>
+      <div class="main-section">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
