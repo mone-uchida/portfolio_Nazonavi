@@ -2,7 +2,7 @@
   <ul class="event-info">
     <li><%= link_to event.name,event_path(event) %></li>
     <li>チケット: 一人当たり<%= event.price %>円程度</li>
-    <li>会場: <%= event.place %></li>
+    <li>会場: <%= link_to event.place, spot_path(event.spot_id) %></li>
     <% if event.start_at.present? %>
       <li>イベント開始日: <%= event.start_at.strftime('%Y年%m月%d日') %></li>
     <% else %>
