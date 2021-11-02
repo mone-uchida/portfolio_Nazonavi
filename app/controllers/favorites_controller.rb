@@ -17,7 +17,7 @@ class FavoritesController < ApplicationController
   end
 
   private
-  
+
   def set_event
     @event = Event.find_by(id: params[:id])
   end
