@@ -1,16 +1,29 @@
 <div class="spot show">
-  <tr>
-    <td><%= @spot.place %></td>
-    <td><%= @spot.address %></td>
-    <td><%= @spot.url %></td>
-  </tr>
   <div>
-    <p>開催中の公演</p>
+    <ul>
+      <li><%= @spot.place %></li>
+      <li><%= @spot.address %></li>
+      <li><%= link_to @spot.url %></li>
+    </ul>
+    <div id="spot-map"></div>
+  </div>
+  <div>
+    <p>開催中のイベント</p>
     <ul>
       <% @related_events.each do |event| %>
         <li><%= link_to event.name, event_path(event.id) %></li>
-        <li><%= event.start_at %></li>
-        <li><%= event.finish_at %></li>
+        <% if event.start_at.present? %>
+          <li>イベント開始日: <%= event.start_at.strftime('%Y年%m月%d日') %></li>
+        <% else %>
+          <li>イベント開始日: - </li>
+        <% end %>    
+        <% if event.finish_at.present? %>
+          <li>イベント終了日: <%= event.finish_at.strftime('%Y年%m月%d日') %></li>
+        <% else %>
+          <li>イベント終了日: - </li>
+        <% end %>
       <% end %>
     </ul>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_key] %>&callback=initMap" async defer></script>
+<%= javascript_pack_tag 'spots/map' %>
