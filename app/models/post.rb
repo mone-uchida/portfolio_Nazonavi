@@ -4,6 +4,8 @@ class Post < ApplicationRecord
 
   delegate :name, to: :title
 
+  delegate :name, :icon, to: :user, prefix: true
+
   with_options presence: true do
     validates :user_id
     validates :title_id
