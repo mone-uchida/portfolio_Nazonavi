@@ -1,10 +1,10 @@
-<div>
-  <tr>
-    <td><img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= event.image %>" ></td>
-    <td><%= link_to event.name,event_path(event) %></td>
-    <td>ひとり<%= event.price %>円程度</td>
-    <td><%= event.address %></td>
-    <td><%= event.start_at %></td>
-    <td><%= event.finish_at %></td>
-  </tr>
+<div class="event-box">
+  <ul class="event-info">
+    <li><%= link_to event.name,event_path(event) %></li>
+    <li>ひとり<%= event.price %>円程度</li>
+    <li><%= event.address %></li>
+    <li><%= event.start_at %></li>
+    <li><%= event.finish_at %></li>
+  </ul>
+  <img class="event-image" src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= event.image %>" >
 </div>

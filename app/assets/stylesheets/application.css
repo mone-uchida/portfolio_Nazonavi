@@ -5,9 +5,10 @@
 *    - top
 *    - home
 *    - user
-*         -edit
-*
-*
+*      - edit
+*    - event
+*      - index
+*      
 */
 
 ul{
@@ -88,11 +89,12 @@ main{
 }
 
 .right-section{
-  flex-basis: 20%;
+  flex-basis: 25%;
+  padding: 2rem;
 }
 
 .main-section{
-  flex-basis: 80%;
+  flex-basis: 75%;
 }
 
 .popular-event img{
@@ -140,4 +142,21 @@ main{
 .select-image img{
   width: 8%;
   height: width;
+}
+
+/* main - event - index */
+.event-box{
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+  width: 80%;
+}
+
+.event-info{
+  flex-basis: 80%;
+}
+
+.event-image{
+  flex-basis: 20%;
+  width: 10%;
 }
