@@ -160,3 +160,18 @@ main{
   flex-basis: 20%;
   width: 10%;
 }
+
+/* main - event - show */
+.event-title{
+  display: inline-block;
+}
+
+.favorite-button{
+  display: inline-block;
+  font-size: large;
+}
+
+.show-event-image{
+  width:20%;
+  margin-left: 4rem;
+}
