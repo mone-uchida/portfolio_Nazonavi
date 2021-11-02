@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :events, only: [:index, :show]
-  resources :spots, only: [:index, :show]
+  resources :spots, only: [:show]
 end
