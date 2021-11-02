@@ -1,6 +1,6 @@
 let map;
 let marker;
-let num = 13;
+let num = 15;
 let spot = gon.spot;
 let Lat = spot.lat;
 let Lng = spot.lng;
