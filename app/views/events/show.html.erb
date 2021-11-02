@@ -8,8 +8,16 @@
   <ul class="show-event-info">
     <li>会場: <%= link_to @event.place, spot_path(@event.spot_id) %></li>
     <li>チケット: 一人当たり<%= @event.price %>円程度</li>
-    <li>イベント開始日: <%= @event.start_at.strftime('%Y年%m月%d日') %></li>
-    <li>イベント終了日: <%= @event.finish_at.strftime('%Y年%m月%d日') %></li>
+    <% if event.start_at.present? %>
+      <li>イベント開始日: <%= @event.start_at.strftime('%Y年%m月%d日') %></li>
+    <% else %>
+      <li>イベント開始日: - </li>
+    <% end %>    
+    <% if event.finish_at.present? %>
+      <li>イベント終了日: <%= @event.finish_at.strftime('%Y年%m月%d日') %></li>
+    <% else %>
+      <li>イベント終了日: - </li>
+    <% end %>
     <li>公式サイト: <%= link_to @event.url %></li>
     <li><%= @event.note %></li>
     <li>掲載元: <%= @event.source %></li>
@@ -21,8 +29,16 @@
       <% @related_events.each do |related_event| %>
         <ul>
           <li><%= link_to related_event.place,spot_path(related_event.spot_id) %><li>
-          <li>イベント開始日: <%= related_event.start_at.strftime('%Y年%m月%d日') %><li>
-          <li>イベント終了日: <%= related_event.finish_at.strftime('%Y年%m月%d日') %><li>
+          <% if event.start_at.present? %>
+            <li>イベント開始日: <%= related_event.start_at.strftime('%Y年%m月%d日') %></li>
+          <% else %>
+            <li>イベント開始日: - </li>
+          <% end %>
+          <% if event.finish_at.present? %>
+            <li>イベント終了日: <%= related_event.finish_at.strftime('%Y年%m月%d日') %></li>
+          <% else %>
+            <li>イベント終了日: - </li>
+          <% end %>
         </ul>
       <% end %>
     <% end %>

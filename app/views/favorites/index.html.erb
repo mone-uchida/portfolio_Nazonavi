@@ -3,6 +3,6 @@
 <% if @finished_events.exists? %>
   <h2>開催が終了したイベント</h2>
   <div class="finished-events">
-    <%= render partial: "events/event", collection: @events %>
+    <%= render partial: "events/event", collection: @finished_events %>
   </div>
 <% end %>
