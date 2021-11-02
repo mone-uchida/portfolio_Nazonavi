@@ -1,5 +1,11 @@
-<h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-  <%= post.name %>
-  <%= post.content %>
-<% end %>
+<div>
+  <h1>投稿一覧</h1>
+  <% @posts.each do |post| %>
+    <div class="post-box">
+      <%= image_tag post.user_icon, class: "user-icon" %>
+      <%= post.user_name %>
+      <%= post.name %>
+      <%= post.content %>
+    </div>
+  <% end %>
+</div>
