@@ -26,7 +26,7 @@
   <img class="show-event-image" src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" >
   <div>
     <% if @related_events.present? %>
-      <p>別会場での開催日程</p>
+      <p>このイベントを開催している他の会場はこちら</p>
       <% @related_events.each do |related_event| %>
         <ul>
           <li><%= link_to related_event.place,spot_path(related_event.spot_id) %><li>
