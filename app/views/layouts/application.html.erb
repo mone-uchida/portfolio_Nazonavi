@@ -18,15 +18,7 @@
             <h1><a href='/home'>謎解き検索</a></h1>
           </div>
           <% if logged_in? %>
-            <div class="header-usericon">
-              <%= image_tag @current_user.icon, class: "user-icon" %>
-            </div>
-            <div class="header-username">
-              <p className="user-name">ログインユーザー: <%= @current_user.name %>さん</p>
-            </div>
-            <div class="header-menu">
-              <%= react_component 'UsersMenu', user: @current_user %>
-            </div>
+            <%= render partial: "layouts/users_header" %>
           <% end %>
         </div>
         <%= render partial: "layouts/header_nav" %>
@@ -36,10 +28,12 @@
       <%= flash[:notice] %>
     <% end %>
     <main>
-      <div class="right-section">
-        <h2>人気のイベント</h2>
-        <%= render partial: "layouts/popular_event", collection: popular_events %>
-      </div>
+      <% unless current_page?("/") %>
+        <div class="right-section">
+          <h2>人気のイベント</h2>
+          <%= render partial: "layouts/popular_event", collection: popular_events %>
+        </div>
+      <% end %>
       <div class="main-section">
         <%= yield %>
       </div>
