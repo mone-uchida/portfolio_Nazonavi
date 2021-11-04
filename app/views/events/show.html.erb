@@ -18,7 +18,7 @@
     <% else %>
       <li>イベント終了日: - </li>
     <% end %>
-    <li>公式サイト: <%= link_to @event.url %></li>
+    <li><%= link_to "公式サイトはこちらから", @event.url %></li>
     <li><%= @event.note %></li>
     <li>掲載元: <%= @event.source %></li>
   </ul>
