@@ -1,3 +1,4 @@
+<% content_for(:title, "お気に入り") %>
 <h1>お気に入りに追加したイベント</h1>
 <%= render partial: "events/event", collection: @events %>
 <% if @finished_events.exists? %>

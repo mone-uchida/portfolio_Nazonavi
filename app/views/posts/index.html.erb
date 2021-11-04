@@ -1,5 +1,6 @@
+<% content_for(:title, "投稿") %>
 <div>
-  <h1>投稿一覧</h1>
+  <h1>みんなの投稿一覧</h1>
   <% @posts.each do |post| %>
     <div class="post-box">
       <%= image_tag post.user_icon, class: "user-icon" %>

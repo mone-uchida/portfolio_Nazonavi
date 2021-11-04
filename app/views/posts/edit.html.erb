@@ -1,3 +1,4 @@
+<% content_for(:title, "自分の投稿") %>
 <div class="post new">
   <h3>投稿を編集する</h3>
   <%= form_with url:post_path(@post), model: @post, method: :patch, local: true do |f| %>
