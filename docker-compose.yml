@@ -15,9 +15,10 @@ services:
     networks:
       - default
     ports:
-      - '33306:3306'
+      - '3306:3306'
     volumes:
       - mysql_data:/var/lib/mysql
+
   mysterysearch:
     build:
       context: .
@@ -28,8 +29,10 @@ services:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
+      SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
     depends_on:
       - mysql
+      - chrome
     networks:
       - default
     volumes:
@@ -43,3 +46,8 @@ services:
     tty: true
     stdin_open: true
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
+
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - '4444:4444'
