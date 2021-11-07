@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Post, type: :system do
   let!(:user) { create(:user, id: 1) }
   let!(:other_user) { create(:user, id: 2) }
-  let!(:title) { create(:nazo, id: 1) }
-  let!(:other_title) { create(:escape, id: 2) }
-  let!(:post) { create(:post, id: 1, user_id: 1, title_id: 1) }
-  let!(:other_post) { create(:other_post, id: 2, user_id: 2, title_id: 2) }
+  let!(:title) { create(:title, id: 1) }
+  let!(:other_title) { create(:other_title, id: 2) }
+  let!(:post) { create(:post, id: 1) }
+  let!(:other_post) { create(:other_post, id: 2) }
 
   describe 'Post' do
     describe 'ユーザーがログイン' do
