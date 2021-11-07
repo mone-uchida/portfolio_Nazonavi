@@ -35,17 +35,23 @@ class PostsController < ApplicationController
       redirect_to users_posts_index_path(current_user)
     elsif @post.user == current_user
       flash[:notice]="入力内容にエラーがあります"
-      render users_posts_index_path(current_user)
+      render :edit
     else
-      flash[:notice]="他のユーザーの投稿のため、編集できません"
+      flash[:notice]="他のユーザーの投稿は編集できません"
       redirect_to posts_path
     end
   end
 
   def destroy
     @post = Post.find_by(id: params[:id])
-    @post.destroy
-    redirect_to users_posts_index_path(current_user)
+    if @post.user == current_user
+      @post.destroy
+      flash[:notice]="投稿を削除しました"
+      redirect_to users_posts_index_path(current_user)
+    else
+      flash[:notice]="他のユーザーの投稿は削除できません"
+      redirect_to posts_path
+    end
   end
 
   private
