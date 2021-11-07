@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user.profile = '未設定'
     if @user.save
       flash[:notice] = 'アカウントを作成しました'
-      redirect_to :login
+      redirect_to "/home"
     else
       flash[:notice] = '入力内容にエラーがあります'
-      render :new_user
+      render :new
     end
   end
 
@@ -45,17 +45,18 @@ class UsersController < ApplicationController
     @user.profile = params[:profile]
 
     if @user.save
-      flash[:notice] = "ユーザー情報を編集しました"
-      redirect_to :edit_user
+      flash[:notice] = "プロフィールを編集しました"
+      redirect_to edit_user_path(@user)
     else
-      render("users/edit")
+      flash[:notice] = "変更内容にエラーがあります"
+      render :edit
     end
   end
 
   def destroy
     log_out
     flash[:notice]="ログアウトしました"
-    redirect_to("/home")
+    redirect_to "/home"
   end
 
   def posts_index
