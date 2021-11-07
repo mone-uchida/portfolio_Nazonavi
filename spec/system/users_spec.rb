@@ -65,11 +65,19 @@ RSpec.describe User, type: :system do
             visit edit_user_path(user)
             fill_in 'name', with: 'test-edit'
             fill_in 'profile', with: 'test-profile'
-            find('#select-button', text: 'アイコンを選択する').click
-            find('#icon-1').click
             click_button '変更した内容を保存する'
-            expect(current_path).to eq users_path(user)
+            expect(current_path).to eq edit_user_path(user)
             expect(page).to have_content 'プロフィールを編集しました'
+          end
+        end
+        context 'フォームの入力値が正常' do
+          it 'ユーザーの編集が失敗' do
+            visit edit_user_path(user)
+            fill_in 'name', with: nil
+            fill_in 'profile', with: 'test-profile'
+            click_button '変更した内容を保存する'
+            expect(current_path).to eq user_path(user)
+            expect(page).to have_content '変更内容にエラーがあります'
           end
         end
       end

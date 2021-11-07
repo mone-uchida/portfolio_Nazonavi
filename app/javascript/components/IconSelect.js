@@ -64,8 +64,6 @@ class IconSelect extends React.Component {
             />
           </div>
         );
-    } else { 
-      button = <button className= "button" onClick={() => this.handleSelectOpen()}>アイコンを選択する</button>
     }
     return (
       <tr>
