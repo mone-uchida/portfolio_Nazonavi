@@ -18,16 +18,16 @@ RSpec.describe User, type: :system do
           end
         end
         context '名前未記入' do
-            it 'ユーザーの新規作成が失敗' do
-              visit new_user_path
-              fill_in 'user_name', with: nil
-              fill_in 'user_email', with: 'test@example.com'
-              fill_in 'user_password_digest', with: 'password'
-              click_button 'アカウントを作成'
-              expect(current_path).to eq users_path
-              expect(page).to have_content "入力内容にエラーがあります"
-            end
+          it 'ユーザーの新規作成が失敗' do
+            visit new_user_path
+            fill_in 'user_name', with: nil
+            fill_in 'user_email', with: 'test@example.com'
+            fill_in 'user_password_digest', with: 'password'
+            click_button 'アカウントを作成'
+            expect(current_path).to eq users_path
+            expect(page).to have_content "入力内容にエラーがあります"
           end
+        end
         context 'メールアドレス未記入' do
           it 'ユーザーの新規作成が失敗' do
             visit new_user_path
@@ -70,7 +70,7 @@ RSpec.describe User, type: :system do
             expect(page).to have_content 'プロフィールを編集しました'
           end
         end
-        context 'フォームの入力値が正常' do
+        context '名前未記入' do
           it 'ユーザーの編集が失敗' do
             visit edit_user_path(user)
             fill_in 'name', with: nil
