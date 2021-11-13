@@ -77,6 +77,14 @@ RSpec.describe User, type: :system do
           end
         end
       end
+      describe 'ログアウト機能' do
+        it 'ログアウトができる' do
+          visit edit_user_path(user)
+          find('#logout').click
+          expect(current_path).to eq home_path
+          expect(page).to have_content 'ログアウトしました'
+        end
+      end 
     end
   end
 end
