@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login',           to: 'users#login_form'
   post '/login',          to: 'users#login'
   delete '/logout',       to: 'users#destroy'
+  get 'search',           to: 'events#search'
+  get 'address',          to: 'events#address_search'
   post 'favorite/:id',    to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id',  to: 'favorites#destroy', as: 'destroy_favorite'
   resources :users do
