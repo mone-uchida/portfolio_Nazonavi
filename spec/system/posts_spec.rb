@@ -10,12 +10,7 @@ RSpec.describe Post, type: :system do
 
   describe 'Post' do
     describe 'ユーザーがログイン' do
-      before do
-        visit login_path
-        fill_in 'email', with: user.email
-        fill_in 'password_digest', with: 'password'
-        click_button 'ログイン'
-      end
+      before { login(user) }
       describe '投稿機能' do
         context 'フォームの入力値が正常' do
           it '投稿が成功' do

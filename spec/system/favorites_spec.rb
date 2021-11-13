@@ -18,12 +18,7 @@ RSpec.describe Favorite, type: :system, js: true do
         end
       end
       describe 'ログイン後' do
-        before do
-          visit login_path
-          fill_in 'email', with: user.email
-          fill_in 'password_digest', with: 'password'
-          click_button 'ログイン'
-        end
+        before { login(user) }
         context 'いいねをクリックした場合' do
           it 'いいねの追加と解除ができる' do
             visit event_path(event)

@@ -54,12 +54,7 @@ RSpec.describe User, type: :system do
       end
     end
     describe 'ログイン後' do
-      before do
-        visit login_path
-        fill_in 'email', with: user.email
-        fill_in 'password_digest', with: 'password'
-        click_button 'ログイン'
-      end
+      before { login(user) }
       describe 'ユーザー編集' do
         context 'フォームの入力値が正常' do
           it 'ユーザーの編集が成功' do
