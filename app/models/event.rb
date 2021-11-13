@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :spot
   belongs_to :title
-  belongs_to :user
 
   has_many :favorites
 
