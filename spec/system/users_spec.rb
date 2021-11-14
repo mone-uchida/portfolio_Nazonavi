@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :system do
+RSpec.describe User, type: :system, js: true do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
 
@@ -61,6 +61,9 @@ RSpec.describe User, type: :system do
             visit edit_user_path(user)
             fill_in 'name', with: 'test-edit'
             fill_in 'profile', with: 'test-profile'
+            click_button 'アイコンを選択する'
+            expect(page).to have_selector '.icon-select'
+            find('#icon-1').click
             click_button '変更した内容を保存する'
             expect(current_path).to eq edit_user_path(user)
             expect(page).to have_content 'プロフィールを編集しました'
