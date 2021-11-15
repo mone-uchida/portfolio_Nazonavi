@@ -131,12 +131,33 @@ main{
   padding: 2rem;
 }
 
-.main-section{
-  flex-basis: 70%;
+.popular-event{
+  margin: 15px 5px;
+  padding: 25px 10px;
+  border-radius: 7px;
+  border:3px solid #FFD700;
+  background-color: #FFFFE0;
 }
 
 .popular-event img{
-  width: 7vw;
+  float: right;
+  width:25%;
+}
+
+.popular-event .info{
+  float:left;
+}
+
+.popular-event p{
+  font-size: 14px;
+}
+
+#popular-event-name{
+  font-size: 10px;
+}
+
+.main-section{
+  flex-basis: 70%;
 }
 
 /* main - top */
@@ -210,7 +231,7 @@ main{
 
 /* main - home */
 #map{
-  width: 75vw;
+  width: 65vw;
   height: calc(75vw * 0.60);
 }
 
