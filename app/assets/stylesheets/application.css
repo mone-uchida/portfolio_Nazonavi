@@ -8,6 +8,7 @@
 *      - edit
 *    - events
 *      - index
+*      - show
 *    - spots
 *      - show
 */
@@ -15,6 +16,7 @@
 body{
   margin: 0;
   padding: 0;
+  font-family: 'Kiwi Maru', serif;
 }
 
 ul{
