@@ -3,7 +3,7 @@ let marker;
 let infoWindow;
 let defaultlat = 35.926093;
 let defaultlng = 139.295290;
-let num = 8.7;
+let num = 9;
 window.initMap = function(){
   map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: defaultlat,lng: defaultlng},
@@ -20,27 +20,27 @@ window.initMap = function(){
       map: map
     })
     let name = gon.titles[titleId -1].name;
-    let image = gon.titles[titleId -1].image;
-    let imageUrl = gon.s3_url + image;
     if (gon.events[i].start_at != null) {
       var startDate  = gon.events[i].start_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
     } else {
-      var startDate = "-"
+      var startDate = ""
     }
     if (gon.events[i].finish_at != null) {
       var finishDate  = gon.events[i].finish_at.replace(/(\d{4})-0?(\d{1,2})-0?(\d{1,2})/, '$1年$2月$3日');
     } else {
-      var finishDate = "-"
+      var finishDate = "開催中"
     }
     let infoWindow = new google.maps.InfoWindow({
-        content: `<div id="infowindow">
+        content: `<div class="infowindow">
                     <h2>${name}</h2>
-                    <p>開催期間<br>
-                      ${startDate}~<br>
-                      ${finishDate}
-                    </p>
-                    <a href="/events/${Id}">詳細</a>
-                    <img src="${imageUrl}" arign="left">
+                    <div class="info-list">
+                      <div class="info-date">
+                        <p>${startDate} ~ ${finishDate}</p>
+                      </div>
+                      <div class="info-link">
+                        <a href="/events/${Id}">詳細</a>
+                      </div>
+                    <div>
                   </div>`
     });
     infoWindow.open(map, marker);
