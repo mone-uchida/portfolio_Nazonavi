@@ -1,4 +1,12 @@
-<h1>謎解き施設　検索アプリ</h1>
-<%= link_to '新規登録', :new_user %>
-<%= link_to 'ログイン', :login %>
-<%= link_to 'ログインせずに利用する', :home %>
+<div class="top">
+  <div class="top-wrapper">
+    <h1>なぞなび</h1>
+    <div class="link">
+      <div class="user-link">
+        <%= link_to '新規登録', :new_user, class: "button" %>
+        <%= link_to 'ログイン', :login, class: "button" %>
+      </div>
+      <%= link_to 'ログインせずに利用する', :home, class: "guest-link" %>
+    </div>
+  </div>
+</div>
