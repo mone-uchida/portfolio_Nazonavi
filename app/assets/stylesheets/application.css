@@ -29,13 +29,14 @@ ul{
 header{
   position: relative;
   top: -25px;
-  height: 130px;
+  height: 150px;
   width: 100%;
-  background-color:#99CCFF;
+  background: -webkit-linear-gradient(top left, #FF99FF , #FF9999 50%, #CC99FF); 
+  background-size: cover;
 }
 
 .header-wrapper{
-  height:70px;
+  height:80px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -238,28 +239,28 @@ main{
 }
 
 /* main - home */
+.map-wrapper{
+  margin-left: 25px;
+  margin-right: 20px;
+}
+
+.map-wrapper h1{
+  font-size: 25px;
+  border-bottom: 3px solid #FF9900;
+  margin-bottom: 10px;
+}
+
+.area-suggest{
+  margin-bottom: 10px;
+}
+
 #map{
   width: 65vw;
-  height: calc(75vw * 0.60);
+  height: calc(65vw * 0.4);
 }
 
-#infowindow h2{
+.infowindow h2{
   font-size: 13px;
-}
-
-#infowindow p{
-  display: inline-block;
-}
-
-#infowindow img{
-  float: right;
-  width: 70px;
-  height:95px;
-  display: inline;
-}
-
-#infowindow a{
-  display: inline-block;
 }
 
 /* main - users - login/new */
