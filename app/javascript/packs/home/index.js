@@ -1,21 +1,21 @@
 let map;
-let marker;
-let infoWindow;
-let defaultlat = 35.926093;
-let defaultlng = 139.295290;
-let num = 9;
+let marker = [];
+let infoWindow = [];
+let defaultlat = 35.703732;
+let defaultlng = 139.579514;
+let num = 10;
 window.initMap = function(){
   map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: defaultlat,lng: defaultlng},
       zoom: num
   }); 
-  for (i = 0; i < gon.events.length; i++) {
+  for (var i = 0; i < gon.events.length; i++) {
     let Id = gon.events[i].id
     let spotId = gon.events[i].spot_id;
     let titleId = gon.events[i].title_id;
     let markerLat = gon.spots[spotId -1].lat;
     let markerLng = gon.spots[spotId -1].lng;
-    marker = new google.maps.Marker({
+    marker[i] = new google.maps.Marker({
       position: {lat: markerLat, lng: markerLng},
       map: map
     })
@@ -30,7 +30,7 @@ window.initMap = function(){
     } else {
       var finishDate = "開催中"
     }
-    let infoWindow = new google.maps.InfoWindow({
+    infoWindow[i] = new google.maps.InfoWindow({
         content: `<div class="infowindow">
                     <h2>${name}</h2>
                     <div class="info-list">
@@ -42,9 +42,14 @@ window.initMap = function(){
                       </div>
                     <div>
                   </div>`
+		});
+    markerEvent(i);
+  }
+  function markerEvent(i) {
+    marker[i].addListener('click', function() {
+        infoWindow[i].open(map, marker[i]);
     });
-    infoWindow.open(map, marker);
-  };
+  }
 }
 
 window.onButtonClick = function() {
