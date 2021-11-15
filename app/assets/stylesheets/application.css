@@ -5,6 +5,8 @@
 *    - top
 *    - home
 *    - users
+       - login
+       - new
 *      - edit
 *    - events
 *      - index
@@ -135,8 +137,9 @@ main{
 
 .popular-event{
   margin: 15px 5px;
-  padding: 25px 10px;
+  padding: 15px 10px;
   border-radius: 7px;
+  height:150px;
   border:3px solid #FFD700;
   background-color: #FFFFE0;
 }
@@ -170,7 +173,7 @@ main{
   min-height: 100vh;
   background-image: url("/images/top_image.jpg");
   background-size: cover;
-  background-color:rgba(200,200,255,0.7);
+  background-color:rgba(200,200,255,0.65);
   background-blend-mode:lighten;
 }
 
@@ -194,7 +197,6 @@ main{
 
 .link{
   background-color: #6495ED;
-  opacity: 0.95;
   width:40%;
   text-align: center;
   margin: auto;
@@ -231,6 +233,10 @@ main{
   margin-bottom: 10px;
 }
 
+.guest-link:hover{
+  color: #FFD700;
+}
+
 /* main - home */
 #map{
   width: 65vw;
@@ -254,6 +260,74 @@ main{
 
 #infowindow a{
   display: inline-block;
+}
+
+/* main - users - login/new */
+.login{
+  margin:auto;
+  width:45%;
+}
+.new{
+  margin:auto;
+  width:55%;
+}
+
+.login h3{
+  font-size: 23px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.new h3{
+  font-size: 23px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.login h3{
+  border-bottom: 3px solid #1E90FF;
+}
+
+.new h3{
+  border-bottom: 3px solid #FF4F50;
+}
+
+.form{
+  margin: 0;
+  text-align: center;
+  line-height: 3rem;
+  font-size: large;
+}
+
+.form table{
+  width:85%;
+}
+
+.form-input{
+  height: 23px;
+  width: 100%;
+}
+
+#login-submit{
+  margin: 10px;
+  float: right;
+}
+
+#new-submit{
+  margin: 10px;
+  float: right;
+}
+
+.form p{
+  margin-top: 30px;
+  font-size: 15px;
+}
+
+.guest-login{
+  margin-top: 40px;
+  font-size: 16px;
+  background-color: #FFF0F5;
+  padding:5px 0 20px 10px;
 }
 
 /* main - users - edit */
