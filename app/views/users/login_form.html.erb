@@ -5,19 +5,28 @@
       <table>
         <tr>
           <th><%= f.label :email ,"メールアドレス" %></th>
-          <td><%= f.text_field :email %></td>
+          <td><%= f.text_field :email, class: "form-input" %></td>
         </tr>
         <tr>
           <th><%= f.label :password_digest ,"パスワード" %></th>
-          <td><%= f.text_field :password_digest %></td>
+          <td><%= f.text_field :password_digest ,class: "form-input" %></td>
         </tr>
       </table>
-      <div>
-        <ul>
-          <li><%= f.submit "ログイン"%></li>
-        </ul>
-        <p><%= link_to "アカウントをお持ちでない方はこちら", :new_user %></p>
-      </div>
+      <%= f.submit "ログイン", id: "login-submit" %>
+      <p><%= link_to "アカウントをお持ちでない方はこちら", :new_user %></p>
     <% end %>
+  </div>
+  <div class="guest-login">
+    <p>☆こちらをご利用ください。</p>
+    <table>
+      <tr>
+        <th>メールアドレス : </th>
+        <td>guest@guest.com</td>
+      </tr>
+      <tr>
+        <th>パスワード :</th>
+        <td>guestpassword</td>
+      </tr>
+    </table> 
   </div>
 </div>
