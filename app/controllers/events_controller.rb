@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def search
     @events = Event.joins(:title).
-                where(['titles.name LIKE(?) OR titles.source LIKE(?)', "%#{params[:search]}%", "%#{params[:search]}%"]).
+                where(['titles.name LIKE(?)', "%#{params[:search]}%"]).
                 where("finish_at is null OR finish_at >= ?", Date.today)
 
     if @events.present?
