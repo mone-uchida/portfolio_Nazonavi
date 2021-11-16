@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       flash[:notice]="投稿が完了しました"
       redirect_to users_posts_index_path(current_user)
     else
-      flash[:notice]="入力内容にエラーがあります"
+      flash[:alert]="入力内容にエラーがあります"
       render new_post_path
     end
   end
@@ -30,10 +30,10 @@ class PostsController < ApplicationController
       flash[:notice]="編集が完了しました"
       redirect_to users_posts_index_path(current_user)
     elsif @post.user == current_user
-      flash[:notice]="入力内容にエラーがあります"
+      flash[:alert]="入力内容にエラーがあります"
       render :edit
     else
-      flash[:notice]="他のユーザーの投稿は編集できません"
+      flash[:alert]="他のユーザーの投稿は編集できません"
       redirect_to posts_path
     end
   end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
       flash[:notice]="投稿を削除しました"
       redirect_to users_posts_index_path(current_user)
     else
-      flash[:notice]="他のユーザーの投稿は削除できません"
+      flash[:alert]="他のユーザーの投稿は削除できません"
       redirect_to posts_path
     end
   end

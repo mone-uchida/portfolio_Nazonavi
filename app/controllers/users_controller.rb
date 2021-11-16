@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'アカウントを作成しました'
       redirect_to "/home"
     else
-      flash[:notice] = '入力内容にエラーがあります'
+      flash[:alert] = '入力内容にエラーがあります'
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       log_in user
       redirect_to :home
     else
-      flash[:notice]='入力内容にエラーがあります'
+      flash[:alert]='入力内容にエラーがあります'
       render "login_form"
     end
   end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
       flash[:notice] = "プロフィールを編集しました"
       redirect_to edit_user_path(@user)
     else
-      flash[:notice] = "変更内容にエラーがあります"
+      flash[:alert] = "変更内容にエラーがあります"
       render :edit
     end
   end
