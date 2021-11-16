@@ -428,5 +428,12 @@ main{
 #post-text{
   float: right;
   width: 91.5%;
-  height: 80px;
+  height: 100px;
+}
+
+.attention{
+  margin-top: 60px;
+  font-size: 14px;
+  color: #FF3300;
+  text-align: center;
 }
