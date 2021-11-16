@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Event', type: :request do
-  let(:title) { create(:title) }
-  let(:spot) { create(:spot) }
   let(:event) { create(:event) }
+  let!(:title) { create(:title) }
+  let!(:spot) { create(:spot) }
 
   describe "Event" do
     it 'GET index' do
