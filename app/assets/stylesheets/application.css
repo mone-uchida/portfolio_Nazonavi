@@ -454,6 +454,10 @@ main{
   font-size: large;
 }
 
+.favorite-button a{
+  text-decoration: none;
+}
+
 .event-wrapper{
   display: flex;
   justify-content: space-between;
