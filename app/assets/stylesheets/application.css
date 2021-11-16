@@ -29,14 +29,14 @@ ul{
 header{
   position: relative;
   top: -25px;
-  height: 150px;
+  height: 165px;
   width: 100%;
   background: -webkit-linear-gradient(top left, #FF99FF , #FF9999 50%, #CC99FF); 
   background-size: cover;
 }
 
 .header-wrapper{
-  height:80px;
+  height:90px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -132,13 +132,13 @@ main{
 }
 
 .right-section{
-  flex-basis: 30%;
+  flex-basis: 25%;
   padding: 2rem;
 }
 
 .popular-event{
   margin: 15px 5px;
-  padding: 15px 10px;
+  padding: 10px;
   border-radius: 7px;
   height:150px;
   border:3px solid #FFD700;
@@ -146,8 +146,9 @@ main{
 }
 
 .popular-event img{
+  width: 25%;
   float: right;
-  width:25%;
+  margin-top:10px;
 }
 
 .popular-event .info{
@@ -158,12 +159,8 @@ main{
   font-size: 14px;
 }
 
-#popular-event-name{
-  font-size: 10px;
-}
-
 .main-section{
-  flex-basis: 70%;
+  flex-basis: 75%;
 }
 
 /* main - top */
