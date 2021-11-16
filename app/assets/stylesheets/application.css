@@ -57,6 +57,10 @@ header a{
   text-decoration: none;
 }
 
+header a:hover{
+  color: #9966FF;
+}
+
 .header-logo{
   flex-basis: 30%;
   margin-right: 0px;
@@ -108,9 +112,8 @@ header a{
   top: 5rem;
   width: 9%;
   display: inline-block;
-  color: #000;
-  background-color:lightgray;
-  opacity: 0.65;
+  background-color:#FF9999;
+  opacity: 0.85;
   border-radius: 0.4rem;
 }
 
@@ -125,6 +128,7 @@ header a{
 .nav-items{
   display: flex;
   justify-content: space-between;
+  font-size: 18px;
 }
 
 /* main */
