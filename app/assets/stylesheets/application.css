@@ -163,6 +163,19 @@ main{
   flex-basis: 75%;
 }
 
+.flash{
+  margin-left: 15px;
+}
+
+#notice{
+  color: #3399FF;
+}
+
+#alert{
+  color: #FF3300;
+
+}
+
 /* main - top */
 .top{
   flex-basis: 100%;
