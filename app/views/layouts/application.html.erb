@@ -37,9 +37,14 @@
         <%= render partial: "layouts/header_nav" %>
       </header>
     <% end %>
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
+    <div class="flash">
+      <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div id="alert"><%= flash[:alert] %></div>
+      <% end %>
+    <div>
     <main>
       <% unless current_page?("/") %>
         <div class="right-section">
