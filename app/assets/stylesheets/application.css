@@ -440,8 +440,13 @@ main{
 }
 
 /* main - events - show */
-.event-title{
+.event-top{
+  border-bottom: 3px dashed #9933FF;
+}
+
+.event-top h2{
   display: inline-block;
+  margin-right: 20px;
 }
 
 .favorite-button{
@@ -449,9 +454,26 @@ main{
   font-size: large;
 }
 
-.show-event-image{
+.event-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-info-list{
+  font-size: 17px;
+  line-height: 32px;
+}
+
+.related-events p{
+  margin-top: 40px;
+  border: 1px solid #3399FF;
+  padding:5px 10px;
+  background-color: #F0F8FF;
+}
+
+.show-event-image img{
   width:20vw;
-  margin-left: 4rem;
+  margin:15px 25px;
 }
 
 /* main - spots - show */
