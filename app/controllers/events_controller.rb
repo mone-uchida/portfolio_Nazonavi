@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where("finish_at is null OR finish_at >= ?", Date.today)
+    @events = Event.where("finish_at is null OR finish_at >= ?", Date.today).order(id: :desc)
   end
 
   def show
