@@ -13,6 +13,8 @@
 *      - show
 *    - spots
 *      - show
+*    - posts
+*      - new
 */
 
 body{
@@ -319,12 +321,7 @@ main{
   width: 100%;
 }
 
-#login-submit{
-  margin: 10px;
-  float: right;
-}
-
-#new-submit{
+.submit{
   margin: 10px;
   float: right;
 }
@@ -410,4 +407,26 @@ main{
 #spot-map{
   width: 30vw;
   height: calc(30vw * 0.75);
+}
+
+/* main - posts - new */
+.post tr{
+  margin:10px;
+}
+
+.post th{
+  width:16%;
+}
+
+.post select{
+  width:93%;
+  float: right;
+  font-size: 15px;
+  margin-bottom:10px;
+}
+
+#post-text{
+  float: right;
+  width: 91.5%;
+  height: 80px;
 }
