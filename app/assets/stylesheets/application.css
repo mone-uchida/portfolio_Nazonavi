@@ -110,7 +110,7 @@ header a:hover{
 .menu-item{
   position: absolute;
   top: 5rem;
-  width: 9%;
+  width: 10%;
   display: inline-block;
   background-color:#FF9999;
   opacity: 0.85;
