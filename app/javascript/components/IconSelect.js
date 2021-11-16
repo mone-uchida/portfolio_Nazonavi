@@ -54,23 +54,24 @@ class IconSelect extends React.Component {
               <img
                 key={ icon }
                 id={`icon-${i}`}
+                className="icons"
                 src={ icon.pct }
                 value={ icon.name }
                 onClick={() => this.handleChangeIcon(icon)}
               />
             )}
             <div>選択中のアイコン</div>
-          <img 
-              src={ this.state.Iconpath }
-              className="select-image"
-            />
+            <img 
+                src={ this.state.Iconpath }
+                className="select-image"
+              />
           </div>
         );
     } else {
       button = <button id="select-button" onClick={() => this.handleSelectOpen()}>アイコンを選択する</button>
     }
     return (
-      <div>
+      <div className="icon-wrapper">
         <label>アイコン</label>
           <input id="icon" name="icon" type="text" value={ this.state.Icon }　readOnly={true} hidden />
           { button }
