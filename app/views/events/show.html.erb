@@ -1,47 +1,55 @@
 <% content_for(:title, "イベント - #{@event.name}") %>
 <div class="event show">
-  <div class-"event-top">　
-    <h2 class="event-title"><%= @event.name %></h2>
+  <div class="event-top">　
+    <h2><%= @event.name %></h2>
     <div class="favorite-button" id="event_<%= @event.id %>">
       <%= render "events/favorites_button", event: @event %>
     </div>
   </div>
-  <ul class="show-event-info">
-    <li>会場: <%= link_to @event.place, spot_path(@event.spot_id) %></li>
-    <li>チケット: 一人当たり<%= @event.price %>円程度</li>
-    <% if @event.start_at.present? %>
-      <li>イベント開始日: <%= @event.start_at.strftime('%Y年%m月%d日') %></li>
-    <% else %>
-      <li>イベント開始日: - </li>
-    <% end %>    
-    <% if @event.finish_at.present? %>
-      <li>イベント終了日: <%= @event.finish_at.strftime('%Y年%m月%d日') %></li>
-    <% else %>
-      <li>イベント終了日: - </li>
-    <% end %>
-    <li><%= link_to "公式サイトはこちらから", @event.url %></li>
-    <li><%= @event.note %></li>
-    <li>掲載元: <%= @event.source %></li>
-  </ul>
-  <img class="show-event-image" src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" >
-  <div>
-    <% if @related_events.present? %>
-      <p>このイベントを開催している他の会場はこちら</p>
-      <% @related_events.each do |related_event| %>
+  <div class="event-wrapper">
+    <div class="show-event-info">
+      <div class="event-info-list">
         <ul>
-          <li><%= link_to related_event.place,spot_path(related_event.spot_id) %><li>
-          <% if related_event.start_at.present? %>
-            <li>イベント開始日: <%= related_event.start_at.strftime('%Y年%m月%d日') %></li>
+          <li>会場: <%= link_to @event.place, spot_path(@event.spot_id) %></li>
+          <li>チケット: 一人当たり<%= @event.price %>円程度</li>
+          <% if @event.start_at.present? %>
+            <li>イベント開始日: <%= @event.start_at.strftime('%Y年%m月%d日') %></li>
           <% else %>
             <li>イベント開始日: - </li>
-          <% end %>
-          <% if related_event.finish_at.present? %>
-            <li>イベント終了日: <%= related_event.finish_at.strftime('%Y年%m月%d日') %></li>
+          <% end %>    
+          <% if @event.finish_at.present? %>
+            <li>イベント終了日: <%= @event.finish_at.strftime('%Y年%m月%d日') %></li>
           <% else %>
             <li>イベント終了日: - </li>
           <% end %>
+          <li><%= link_to "公式サイトはこちらから", @event.url %></li>
+          <li><%= @event.note %></li>
+          <li>掲載元: <%= @event.source %></li>
         </ul>
-      <% end %>
-    <% end %>
+      </div>
+      <div class="related-events">
+        <% if @related_events.present? %>
+          <p>このイベントを開催している他の会場はこちら</p>
+          <% @related_events.each do |related_event| %>
+            <ul>
+              <li><%= link_to related_event.place,spot_path(related_event.spot_id) %><li>
+              <% if related_event.start_at.present? %>
+                <li>イベント開始日: <%= related_event.start_at.strftime('%Y年%m月%d日') %></li>
+              <% else %>
+                <li>イベント開始日: - </li>
+              <% end %>
+              <% if related_event.finish_at.present? %>
+                <li>イベント終了日: <%= related_event.finish_at.strftime('%Y年%m月%d日') %></li>
+              <% else %>
+                <li>イベント終了日: - </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show-event-image">
+      <img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" >
+    </div>
   </div>
 </div>
