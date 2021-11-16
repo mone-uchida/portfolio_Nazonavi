@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :spot do
     id {1}
-    place {"test_place"}
-    address {"test_address"}
+    place {"イベント会場"}
+    address {"東京都"}
     lat {100.000000}
     lng {100.000000}
   end
