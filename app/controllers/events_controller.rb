@@ -5,7 +5,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @related_events = Event.where(title_id: @event.title_id).where.not(id: @event.id)
+    @related_events = Event.where(title_id: @event.title_id).
+                        where.not(id: @event.id).
+                        where("finish_at is null OR finish_at >= ?", Date.today)
   end
 
   def search
