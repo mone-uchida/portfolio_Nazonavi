@@ -29,7 +29,7 @@ class UsersMenu extends React.Component {
         <ul className="menu-item">
           <li><a href={'/users/' + this.props.user.id + '/favorites'}>お気に入り</a></li>
           <li><a href={'/users/' + this.props.user.id + '/posts'}>投稿一覧</a></li>
-          <li><a href={'/users/' + this.props.user.id + '/edit'}>設定</a></li>
+          <li><a href={'/users/' + this.props.user.id + '/edit'}>プロフィール</a></li>
         </ul>
       );
     }
