@@ -10,10 +10,10 @@
         </tr>
         <tr>
           <th><%= f.label :content, "投稿内容" %></th>
-          <td><%= f.text_field :content, value: @post.content %></td>
+          <td><%= f.text_area :content, value: @post.content, class: "post-text" %></td>
         </tr>
       </tbody>
     </table>
-    <div><%= f.submit "編集を保存する" %></div>
+    <div><%= f.submit "編集を保存する", class: "submit" %></div>
   <% end %>
 </div>
