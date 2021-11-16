@@ -5,9 +5,10 @@
 *    - top
 *    - home
 *    - users
-       - login
-       - new
+*      - login
+*      - new
 *      - edit
+*      - posts_index
 *    - events
 *      - index
 *      - show
@@ -15,6 +16,7 @@
 *      - show
 *    - posts
 *      - new
+*      - index
 */
 
 body{
@@ -400,6 +402,10 @@ main{
   width: 8vw;
   height: width;
 }
+/* main - users - posts_index */
+.post-link{
+  float: right;
+}
 
 /* main - events - index */
 .event-list{
@@ -471,7 +477,7 @@ main{
   margin-bottom:10px;
 }
 
-#post-text{
+.post-text{
   float: right;
   width: 91.5%;
   height: 100px;
@@ -482,4 +488,43 @@ main{
   font-size: 14px;
   color: #FF3300;
   text-align: center;
+}
+
+/* main - posts - index */
+.post-box{
+  width: 80%;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 8px;
+  border: 2px solid #FF9999;
+}
+
+
+.post-user{
+  display: flex;
+  justify-content:　flex-start;
+  border-bottom: 2px dashed #FF9999;
+}
+
+.post-icon{
+  float: left;
+  height: 3.8rem;
+  width: height;
+  border-radius: 50%;
+}
+
+.post-user-name{
+  margin-left: 10px;
+  font-size: 17px;
+  line-height: 60px;
+}
+
+.post-create{
+  margin-left: 30px;
+  font-size: 17px;
+  line-height: 60px;
+}
+
+.post-name{
+  color: #FF4F50;
 }
