@@ -12,7 +12,7 @@
           <td><%= f.text_field :password_digest ,class: "form-input" %></td>
         </tr>
       </table>
-      <%= f.submit "ログイン", id: "login-submit" %>
+      <%= f.submit "ログイン", class: "submit" %>
       <p><%= link_to "アカウントをお持ちでない方はこちら", :new_user %></p>
     <% end %>
   </div>

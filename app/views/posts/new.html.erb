@@ -9,15 +9,17 @@
           <% if @event.present? %>
             <td><%= f.hidden_field :title_id, value: @event.title_id, readonly: true %><%= @event.name %></td>
           <% else %>
-            <td><%= f.collection_select :title_id, Title.all, :id, :name, include_blank: "選択して下さい" %></td>
+            <td>
+              <%= f.collection_select :title_id, Title.all, :id, :name, include_blank: "選択して下さい", id: "select-title" %>
+            </td>
           <% end %>
         </tr>
         <tr>
           <th><%= f.label :content ,"投稿内容" %></th>
-          <td><%= f.text_field :content %></td>
+          <td><%= f.text_area :content, id: "post-text" %></td>
         </tr>
       </tbody>
     </table>
-    <div><%= f.submit "投稿する" %></div>
+    <div><%= f.submit "投稿する", class: "submit" %></div>
   <% end %>
 </div>
