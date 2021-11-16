@@ -455,10 +455,34 @@ main{
 }
 
 /* main - spots - show */
+.spot h3{
+  padding-bottom: 3px;
+  padding-left: 10px;
+  border-bottom: 3px dashed #3399FF;
+}
+.spot-wrapper{
+  display: flex;
+}
+
+.spot-info{
+  flex-basis: 50%;
+}
+
+.spot-info h4{
+  display: inline-block;
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #FFFF99;
+
+}
 
 #spot-map{
-  width: 30vw;
-  height: calc(30vw * 0.75);
+  flex-basis: 50%;
+  margin-top: 30px;
+  margin-left:10px;
+  width: 35vw;
+  height: calc(35vw * 0.75);
 }
 
 /* main - posts - new */
