@@ -3,10 +3,17 @@
   <h1>みんなの投稿</h1>
   <% @posts.each do |post| %>
     <div class="post-box">
-      <%= image_tag post.user_icon, class: "user-icon" %>
-      <%= post.user_name %>
-      <%= post.name %>
-      <%= post.content %>
+      <div class="post-user">
+        <%= image_tag post.user_icon, class: "post-icon" %>
+        <div class="post-user-name">
+          <%= post.user_name %>さん
+        </div>
+        <div class="post-create">
+          投稿日時 : <%= post.created_at.strftime('%m月%d日 %H時%M分') %>
+        </div>
+      </div>
+      <p class="post-name"><%= post.name %></p>
+      <p class="post-content"><%= post.content %></p>
     </div>
   <% end %>
 </div>
