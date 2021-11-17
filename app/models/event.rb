@@ -4,6 +4,11 @@ class Event < ApplicationRecord
 
   has_many :favorites
 
+  with_options presence: true do
+    validates :spot_id
+    validates :title_id
+  end
+
   delegate :lat,
           :lng,
           :place,
@@ -18,8 +23,11 @@ class Event < ApplicationRecord
           :source,
           to: :title
 
-  with_options presence: true do
-    validates :spot_id
-    validates :title_id
-  end
+  scope :open, -> { 
+    where("finish_at is null OR finish_at >= ?", Date.today) 
+  }
+
+  scope :related, -> (event) { 
+    where(title_id: event.title_id).where.not(id: event.id)
+  }
 end

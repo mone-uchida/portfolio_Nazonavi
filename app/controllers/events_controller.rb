@@ -1,19 +1,15 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where("finish_at is null OR finish_at >= ?", Date.today).order(id: :desc)
+    @events = Event.open.order(id: :desc)
   end
 
   def show
     @event = Event.find_by(id: params[:id])
-    @related_events = Event.where(title_id: @event.title_id).
-                        where.not(id: @event.id).
-                        where("finish_at is null OR finish_at >= ?", Date.today)
+    @related_events = Event.open.related(@event)
   end
 
   def search
-    @events = Event.joins(:title).
-                where(['titles.name LIKE(?)', "%#{params[:search]}%"]).
-                where("finish_at is null OR finish_at >= ?", Date.today)
+    @events = Event.open.joins(:title).where(['titles.name LIKE(?)', "%#{params[:search]}%"])
 
     if @events.present?
       render "events/index"
@@ -24,9 +20,7 @@ class EventsController < ApplicationController
   end
 
   def address_search
-    @events = Event.joins(:spot).
-                where('spots.address LIKE ?', "%#{params[:address]}%").
-                where("finish_at is null OR finish_at >= ?", Date.today)
+    @events = Event.open.joins(:spot).where('spots.address LIKE ?', "%#{params[:address]}%")
 
     if @events.present?
       render "events/index"
