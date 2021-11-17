@@ -6,7 +6,9 @@
       <div class="post-user">
         <%= image_tag post.user_icon, class: "post-icon" %>
         <div class="post-user-name">
-          <%= post.user_name %>さん
+          <%= link_to user_path(post.user) do %>
+            <%= post.user_name %>さん
+          <% end %>
         </div>
         <div class="post-create">
           投稿日時 : <%= post.created_at.strftime('%m月%d日 %H時%M分') %>
