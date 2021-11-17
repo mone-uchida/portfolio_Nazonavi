@@ -9,6 +9,7 @@
 *      - new
 *      - edit
 *      - posts_index
+*      - show
 *    - events
 *      - index
 *      - show
@@ -407,7 +408,49 @@ main{
   float: right;
 }
 
+/* main - users - show */
+.user-show-wrapper{
+  margin-left: 15px;
+  width:80%;
+}
+
+.user-profile{
+  margin-bottom: 80px;
+}
+
+.user-show-top{
+  display: flex;
+  margin-left:15px;
+}
+
+.user-show-top img{
+  height: 4.5rem;
+  width: height;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid #A9A9A9;
+}
+
+.user-show-top p{
+  font-size: 20px;
+  margin-left: 25px;
+}
+
+.profile{
+  border-bottom: 1.5px dashed #A9A9A9;
+  width:60%;
+}
+
+.index-link{
+  float: right;
+}
+
 /* main - events - index */
+.events-top p{
+  display: inline-block;
+  background: linear-gradient(transparent 70%, yellow 70%);
+}
+
 .event-list{
   display: flex;
   flex-wrap: wrap;
@@ -569,12 +612,30 @@ main{
   line-height: 60px;
 }
 
+.post-user-name a{
+  text-decoration: none;
+  color: #0066FF;
+  font-weight: bold;
+}
+
+.post-user-name a:hover{
+  color: #33CCFF;
+}
+
+
 .post-create{
   margin-left: 30px;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 60px;
 }
 
 .post-name{
+  display: flex;
+  justify-content: space-between;
   color: #FF4F50;
+}
+
+.post-name p{
+  font-size: 13px;
+  color: #000;
 }
