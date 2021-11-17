@@ -512,6 +512,7 @@ main{
 }
 
 .related-events p{
+  display: inline-block;
   margin-top: 40px;
   border: 1px solid #3399FF;
   padding:5px 10px;
@@ -520,7 +521,7 @@ main{
 
 .show-event-image img{
   width:20vw;
-  margin:15px 25px;
+  margin:25px 50px 20px 15px;
 }
 
 /* main - spots - show */
