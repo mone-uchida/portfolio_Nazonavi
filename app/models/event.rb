@@ -30,4 +30,6 @@ class Event < ApplicationRecord
   scope :related, -> (event) { 
     where(title_id: event.title_id).where.not(id: event.id)
   }
+
+  scope :recent, -> { order(id: :desc) }
 end
