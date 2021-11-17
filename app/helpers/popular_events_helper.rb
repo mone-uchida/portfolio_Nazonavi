@@ -4,6 +4,7 @@ module PopularEventsHelper
 
   def popular_events
     @popular_events = Event.all.
+      open.
       left_joins(:favorites).
       group(:event_id).
       select('events.*,COUNT(`favorites`.`event_id`) AS favorites_count').
