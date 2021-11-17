@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.open.order(id: :desc)
+    @events = Event.open.recent
   end
 
   def show
@@ -9,9 +9,11 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.open.joins(:title).where(['titles.name LIKE(?)', "%#{params[:search]}%"])
+    @events = Event.open.joins(:title).where(['titles.name LIKE(?)', "%#{params[:search]}%"]).recent
 
     if @events.present?
+      number = @events.count
+      flash[:notice] = "検索結果は#{number}件です"
       render "events/index"
     else
       flash[:notice] = "該当するイベントがありませんでした"
@@ -20,9 +22,11 @@ class EventsController < ApplicationController
   end
 
   def address_search
-    @events = Event.open.joins(:spot).where('spots.address LIKE ?', "%#{params[:address]}%")
+    @events = Event.open.joins(:spot).where('spots.address LIKE ?', "%#{params[:address]}%").recent
 
     if @events.present?
+      number = @events.count
+      flash[:notice] = "検索結果は#{number}件です"
       render "events/index"
     else
       flash[:notice] = "該当するイベントがありませんでした"
