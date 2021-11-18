@@ -27,9 +27,9 @@ class Event < ApplicationRecord
     where("finish_at is null OR finish_at >= ?", Date.today) 
   }
 
-  scope :related, -> (event) { 
-    where(title_id: event.title_id).where.not(id: event.id)
-  }
-
   scope :recent, -> { order(id: :desc) }
+
+  def self.related(event)
+    where(title_id: event.title_id).where.not(id: event.id)
+  end
 end
