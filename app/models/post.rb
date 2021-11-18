@@ -11,4 +11,6 @@ class Post < ApplicationRecord
     validates :title_id
     validates :content
   end
+
+  scope :recent, -> { order(id: :desc) }
 end
