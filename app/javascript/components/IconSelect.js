@@ -50,21 +50,23 @@ class IconSelect extends React.Component {
     if (this.state.OpenSelect) {
         select = (
           <div className="icon-select">
-            {icons.map((icon,i) =>
-              <img
-                key={ icon }
-                id={`icon-${i}`}
-                className="icons"
-                src={ icon.pct }
-                value={ icon.name }
-                onClick={() => this.handleChangeIcon(icon)}
-              />
-            )}
-            <div>選択中のアイコン</div>
-            <img 
+            <div className="icon-images">
+              {icons.map((icon,i) =>
+                <img
+                  key={ icon }
+                  id={`icon-${i}`}
+                  className="icons"
+                  src={ icon.pct }
+                  value={ icon.name }
+                  onClick={() => this.handleChangeIcon(icon)}
+                />
+              )}
+            </div>
+            <div className="select-image">選択中のアイコン
+              <img 
                 src={ this.state.Iconpath }
-                className="select-image"
               />
+            </div>
           </div>
         );
     } else {
