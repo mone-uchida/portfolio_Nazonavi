@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.recent
+  end
+
+  def event_search
+    event = Event.find_by(title_id: params[:id])
+    redirect_to event_path(event)
   end
 
   def new
