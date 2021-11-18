@@ -31,7 +31,7 @@ ul{
 }
 
 /* header */
-header{
+.header{
   position: relative;
   height: 170px;
   width: 100%;
