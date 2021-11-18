@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(params[:id])
-    @posts = Post.where(user_id: @user.id).order(created_at: :desc)
+    @posts = Post.where(user_id: @user.id).recent
   end
 
   def login_form
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   end
 
   def posts_index
-   @posts = Post.where(user_id: current_user.id).order(created_at: :desc)
+   @posts = Post.where(user_id: current_user.id).recent
   end
 
   private
