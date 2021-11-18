@@ -1,12 +1,14 @@
 <% unless current_page?("/") %>
-  <div class="header-wrapper">
-    <div class="header-logo">
-      <h1><a href='/home'>なぞなび</a></h1>
+  <div class="header">
+    <div class="header-wrapper">
+      <div class="header-logo">
+        <h1><a href='/home'>なぞなび</a></h1>
+      </div>
+      <%= render partial: "layouts/search" %>
+      <% if logged_in? %>
+        <%= render partial: "layouts/users_header" %>
+      <% end %>
     </div>
-    <%= render partial: "layouts/search" %>
-    <% if logged_in? %>
-      <%= render partial: "layouts/users_header" %>
-    <% end %>
+    <%= render partial: "layouts/header_nav" %>
   </div>
-  <%= render partial: "layouts/header_nav" %>
 <% end %>
