@@ -10,20 +10,9 @@
     <%= include_gon %>
   </head>
   <body>
-    <% unless current_page?("/") %>
-    　<header>
-        <div class="header-wrapper">
-          <div class="header-logo">
-            <h1><a href='/home'>なぞなび</a></h1>
-          </div>
-          <%= render partial: "layouts/search" %>
-          <% if logged_in? %>
-            <%= render partial: "layouts/users_header" %>
-          <% end %>
-        </div>
-        <%= render partial: "layouts/header_nav" %>
-      </header>
-    <% end %>
+    <header>
+      <%= render partial: "layouts/header" %>
+    </header>
     <div class="flash">
       <% if flash[:notice] %>
         <div id="notice"><%= flash[:notice] %></div>
