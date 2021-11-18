@@ -11,7 +11,7 @@
           <% end %>
         </div>
         <div class="post-create">
-          投稿日時 : <%= post.created_at.strftime('%m月%d日 %H時%M分') %>
+          投稿日時 : <%= created_at_show(post) %>
         </div>
       </div>
       <p class="post-name"><%= link_to post.name, event_search_path(post.title_id), method: :post %></p>

@@ -13,7 +13,7 @@
       <div class="post-box">
         <div class="post-name">
           <%= post.name %>
-          <p>投稿日時 : <%= post.created_at.strftime('%m月%d日 %H時%M分') %></p>
+          <p>投稿日時 : <%= created_at_show(post) %></p>
         </div>
         <div class="post-content">
           <%= post.content %>
