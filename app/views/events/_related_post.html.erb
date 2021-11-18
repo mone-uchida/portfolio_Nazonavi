@@ -1,0 +1,14 @@
+<div class="post-box">
+  <div class="post-user">
+    <%= image_tag related_post.user_icon, class: "post-icon" %>
+    <div class="post-user-name">
+      <%= link_to user_path(related_post.user) do %>
+        <%= related_post.name %>さん
+      <% end %>
+    </div>
+    <div class="post-create">
+      投稿日時 : <%= created_at_show(related_post) %>
+    </div>
+  </div>
+  <p class="post-content"><%= related_post.content %></p>
+</div>
