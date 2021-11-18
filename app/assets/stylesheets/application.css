@@ -33,8 +33,7 @@ ul{
 /* header */
 header{
   position: relative;
-  top: -25px;
-  height: 165px;
+  height: 170px;
   width: 100%;
   background: -webkit-linear-gradient(top left, #FF99FF , #FF9999 50%, #CC99FF); 
   background-size: cover;
