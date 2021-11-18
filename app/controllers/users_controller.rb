@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user.profile = '未設定'
     if @user.save
       flash[:notice] = 'アカウントを作成しました'
-      redirect_to "/home"
+      redirect_to "/login"
     else
       flash[:alert] = '入力内容にエラーがあります'
       render :new
