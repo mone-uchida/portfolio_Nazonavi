@@ -182,7 +182,6 @@ main{
 
 #alert{
   color: #FF3300;
-
 }
 
 /* main - top */
@@ -193,7 +192,7 @@ main{
   min-height: 100vh;
   background-image: url("/images/top_image.jpg");
   background-size: cover;
-  background-color:rgba(200,200,255,0.65);
+  background-color:rgba(225, 200, 255, 0.65);
   background-blend-mode:lighten;
 }
 
