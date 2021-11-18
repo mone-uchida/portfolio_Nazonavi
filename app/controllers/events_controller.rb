@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @related_events = Event.open.related(@event)
+    @related_posts = Post.where(title_id: @event.title.id).recent
   end
 
   def search
