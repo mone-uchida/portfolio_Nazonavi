@@ -14,7 +14,7 @@
           投稿日時 : <%= post.created_at.strftime('%m月%d日 %H時%M分') %>
         </div>
       </div>
-      <p class="post-name"><%= post.name %></p>
+      <p class="post-name"><%= link_to post.name, event_search_path(post.title_id), method: :post %></p>
       <p class="post-content"><%= post.content %></p>
     </div>
   <% end %>
