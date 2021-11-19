@@ -7,4 +7,8 @@ class Spot < ApplicationRecord
     validates :lat
     validates :lng
   end
+
+  def display_name
+    return self.place
+  end
 end
