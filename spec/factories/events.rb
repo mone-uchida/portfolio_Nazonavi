@@ -3,12 +3,14 @@ FactoryBot.define do
     id {1}
     title_id {1}
     spot_id {1}
+    start_at { Date.new(2020, 01, 01) }
+    finish_at { Date.new(2030, 01, 01) }
   end
 
   factory :other_event, class: Event do
     id {2}
     title_id {2}
-    spot_id{2}
+    spot_id {2}
   end
 
   factory :finished_event, class: Event do
