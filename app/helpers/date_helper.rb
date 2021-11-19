@@ -10,7 +10,7 @@ module DateHelper
 
   def finish_at_show(event)
     if event.finish_at.present?
-      event.start_at.strftime('%Y年%m月%d日')
+      event.finish_at.strftime('%Y年%m月%d日')
     else
       "-"
     end
