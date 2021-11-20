@@ -6,7 +6,7 @@ RSpec.describe 'Application', type: :system do
   describe 'Header' do
     it 'トップページでは表示されない' do
       visit "/"
-      expect(page).to_not have_selector "header"
+      expect(page).to_not have_selector ".header"
     end
 
     describe 'ユーザーログイン前' do
