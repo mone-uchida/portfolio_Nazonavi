@@ -7,6 +7,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :email
+    validates :password_digest
   end
 
   validates :name, length: {maximum: 20}
