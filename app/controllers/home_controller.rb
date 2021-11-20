@@ -9,4 +9,7 @@ class HomeController < ApplicationController
     gon.titles = Title.all.select(:name, :image).order(id: :asc)
     gon.s3_url = "https://#{Rails.application.credentials.aws[:s3_URL]}/titles/event_image/"
   end
+
+  def introduction
+  end
 end
