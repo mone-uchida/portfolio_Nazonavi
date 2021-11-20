@@ -4,6 +4,7 @@
 * - main
 *    - top
 *    - home
+*      - introduction
 *    - users
 *      - login
 *      - new
@@ -280,6 +281,56 @@ main{
   font-size: 13px;
 }
 
+/* main - home - introduction */
+.introduction{
+  text-align: center;
+}
+
+.introduction h2{
+  font-size: 26px;
+  color: #CC3366;
+}
+
+.intro-info{
+  margin-top: 60px;
+}
+
+.introduction h3{
+  margin: auto;
+  width:45%;
+  font-size: 20px;
+  border-bottom: 2px solid #33CCCC;
+}
+
+.introduction h4{
+  margin-top: 30px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.intro-box{
+  display: flex;
+  width:90%;
+}
+
+.intro-box p{
+  flex-basis: 46%;
+  padding: 15px 20px;
+  line-height: 32px;
+}
+
+.intro-box img{
+  flex-basis: 54%;
+}
+
+#intro1{
+  width:50%;
+}
+
+#intro2{
+  width:50%;
+}
+
 /* main - users - login/new */
 .login{
   margin:auto;
@@ -340,7 +391,7 @@ main{
 /* main - users - edit */
 .edit{
   margin:auto;
-  width:55%;
+  width:75%;
 }
 
 .edit h3{
@@ -390,6 +441,17 @@ main{
   border: 3px solid #FF9999;
 }
 
+.icon-select{
+  display: flex;
+}
+
+.icon-images{
+  flex-basis: 70%;
+}
+
+.icon-select{
+  flex-basis: 30%;
+}
 
 .icon-select img{
   width: 7vw;
