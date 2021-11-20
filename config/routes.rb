@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get '/',                to: 'home#top'
   get '/home',            to: 'home#index'
+  get '/introduction',    to: 'home#introduction'
   get '/users/:id/posts', to: 'users#posts_index', as: 'users_posts_index'
   get '/login',           to: 'users#login_form'
   post '/login',          to: 'users#login'
