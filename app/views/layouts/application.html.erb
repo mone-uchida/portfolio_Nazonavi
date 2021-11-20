@@ -25,7 +25,7 @@
       <% unless current_page?("/") %>
         <div class="right-section">
           <h2>人気のイベント</h2>
-          <%= render partial: "layouts/popular_event", collection: popular_events %>
+          <%= render partial: "layouts/popular_event", collection: @popular_events %>
         </div>
       <% end %>
       <div class="main-section">
