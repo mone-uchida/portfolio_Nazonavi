@@ -3,8 +3,8 @@ FactoryBot.define do
     id {1}
     place {"イベント会場"}
     address {"東京都"}
-    lat {100.000000}
-    lng {100.000000}
+    lat {35.703732}
+    lng {139.579514}
   end
 
   factory :other_spot, class: Spot do
