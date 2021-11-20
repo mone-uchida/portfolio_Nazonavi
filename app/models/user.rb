@@ -10,7 +10,11 @@ class User < ApplicationRecord
   end
 
   validates :name, length: {maximum: 20}
-  validates :email, uniqueness: true, length: {maximum: 50}, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, length: {maximum: 50},
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
 
   def favorite_find(event_id)
     favorites.where(event_id: event_id).exists?
