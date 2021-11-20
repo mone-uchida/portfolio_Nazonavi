@@ -1,10 +1,10 @@
 <div class="header-search">
   <%= form_with url:address_path, method: :get do |f| %>
     <%= f.text_field :address, placeholder: "エリア  　例: 東京都" %>
-    <%= submit_tag '探す', :name => nil, class: "submit" %>
+    <%= submit_tag '探す', :name => nil, class: "submit", id: "address-submit" %>
   <% end %>
   <%= form_with url:search_path, method: :get do |f| %>
     <%= f.text_field :search, placeholder: "タイトル   例: 脱出" %>
-    <%= submit_tag '探す', :name => nil, class: "submit" %>
+    <%= submit_tag '探す', :name => nil, class: "submit", id: "search-submit" %>
   <% end %>
 </div>
