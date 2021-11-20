@@ -8,7 +8,7 @@ window.initMap = function(){
   map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: defaultlat,lng: defaultlng},
       zoom: num
-  }); 
+  });
   for (var i = 0; i < gon.events.length; i++) {
     let Id = gon.events[i].id
     let spotId = gon.events[i].spot_id;
