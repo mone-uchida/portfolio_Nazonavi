@@ -44,8 +44,8 @@ RSpec.describe "Event", type: :system do
         it 'イベント情報が表示される' do
           expect(page).to have_content title.name
           expect(page).to have_content title.image
-          expect(page).to have_content event.start_at
-          expect(page).to have_content event.finish_at
+          expect(page).to have_content event.start_at.strftime('%Y年%m月%d日')
+          expect(page).to have_content event.finish_at.strftime('%Y年%m月%d日')
           expect(page).to have_content spot.place
           expect(page).to have_content title.source
         end
@@ -106,7 +106,7 @@ RSpec.describe "Event", type: :system do
         context '該当するイベントがない場合' do
           it 'ホーム画面に遷移する' do
             visit home_path
-            fill_in 'address', with: '花火'
+            fill_in 'search', with: '花火'
             find('#search-submit').click
             expect(current_path).to eq home_path
             expect(page).to have_content "該当するイベントがありませんでした"
