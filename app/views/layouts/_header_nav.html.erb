@@ -1,5 +1,7 @@
 <div class="header-nav">
   <ul class="nav-items">
+    <li><%= link_to "なぞなびとは", introduction_path %></li>
+    <li><%= link_to "地図から探す", home_path %></li>
     <li><%= link_to "イベント一覧", events_path %></li>
     <li><%= link_to "投稿を見る", posts_path %></li>
     <% if logged_in? %>
