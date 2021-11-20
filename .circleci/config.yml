@@ -43,7 +43,7 @@ jobs:
       - run: bundle config --local path vendor/bundle 
       - run: 
           name: bundle install 
-          command: bundle check || bundle install --jobs=8 --clean 
+          command: bundle check || bundle config set --local clean 'true' 
       - run: 
           name: Run rubocop 
           command: bundle exec rubocop --parallel 
@@ -57,13 +57,11 @@ workflows:
   build-test-and-deploy: 
     jobs: 
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL 
-          aws-access-key-id: AWS_ACCESS_KEY 
-          aws-secret-access-key: AWS_SECRET_KEY 
-          context: myContext 
-          repo: 'portfolio' 
-          tag: '${CIRCLE_SHA1}' 
-          region: AWS_REGION 
+          dockerfile: Dockerfile.ci
+          path: mysterysearch_mysterysearch_1
+          profile-name: mysterysearch
+          repo: ${MY_APP_PREFIX}
+          tag: '${CIRCLE_SHA1}'
       - rspec 
       - rubocop 
       - aws-ecs/deploy-service-update:
