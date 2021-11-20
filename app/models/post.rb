@@ -12,7 +12,7 @@ class Post < ApplicationRecord
     validates :content
   end
 
-  validates :content, length: {maximum: 100}
+  validates :content, length: {maximum: 180}
 
   scope :recent, -> { order(id: :desc) }
 end
