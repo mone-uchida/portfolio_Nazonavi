@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Spot, type: :model do
-  describe '登録ができる' do 
+  describe '登録ができる' do
     it '会場、所在地、経度緯度がある場合、有効である' do
       spot = build(:spot)
       expect(spot).to be_valid

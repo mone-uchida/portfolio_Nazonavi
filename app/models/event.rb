@@ -9,31 +9,21 @@ class Event < ApplicationRecord
     validates :title_id
   end
 
-  delegate :lat,
-          :lng,
-          :place,
-          :address,
-          to: :spot
-  
-  delegate :name,
-          :image,
-          :price,
-          :url,
-          :note,
-          :source,
-          to: :title
+  delegate :lat, :lng, :place, :address, to: :spot
 
-  scope :open, -> { 
-    where("finish_at is null OR finish_at >= ?", Date.today) 
+  delegate :name, :image, :price, :url, :note, :source, to: :title
+
+  scope :open, -> {
+    where("finish_at is null OR finish_at >= ?", Date.today)
   }
 
   scope :recent, -> { order(id: :desc) }
 
   scope :popular_events, -> {
-    left_joins(:favorites).
-    group(:event_id).
-    select('events.*,COUNT(`favorites`.`event_id`) AS favorites_count').
-    order(favorites_count: :desc)
+    left_joins(:favorites)
+      .group(:event_id)
+      .select('events.*,COUNT(`favorites`.`event_id`) AS favorites_count')
+      .order(favorites_count: :desc)
   }
 
   def self.related(event)

@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    favorite = Favorite.create(user_id: current_user.id, event_id: params[:id])
+    Favorite.create(user_id: current_user.id, event_id: params[:id])
   end
 
   def destroy

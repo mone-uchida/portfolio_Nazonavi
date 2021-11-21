@@ -84,7 +84,7 @@ RSpec.describe Post, type: :system do
         describe '投稿を削除' do
           it '削除が成功' do
             visit users_posts_index_path(user)
-            find('#delete-#{user.posts.ids.first}').click
+            find("#delete-#{user.posts.ids.first}").click
             expect(current_path).to eq users_posts_index_path(user)
             expect(page).to have_content '投稿を削除しました'
           end

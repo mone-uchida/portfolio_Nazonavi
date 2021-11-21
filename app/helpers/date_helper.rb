@@ -1,5 +1,4 @@
 module DateHelper
-
   def start_at_show(event)
     if event.start_at.present?
       event.start_at.strftime('%Y年%m月%d日')

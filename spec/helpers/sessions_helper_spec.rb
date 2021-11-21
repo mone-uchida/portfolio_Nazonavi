@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe SessionsHelper, type: :helper do
   let(:user) { create(:user) }
- 
+
   it 'ログイン時にuser.idがセッションされる' do
     helper.log_in(user)
     session[:user_id] == user.id

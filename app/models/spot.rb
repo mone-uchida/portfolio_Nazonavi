@@ -9,6 +9,6 @@ class Spot < ApplicationRecord
   end
 
   def display_name
-    return self.place
+    place
   end
 end

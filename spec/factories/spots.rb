@@ -23,4 +23,3 @@ FactoryBot.define do
     lng { 110.000000 }
   end
 end
-    

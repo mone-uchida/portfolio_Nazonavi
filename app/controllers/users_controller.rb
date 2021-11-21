@@ -22,8 +22,7 @@ class UsersController < ApplicationController
     @posts = Post.where(user_id: @user.id).recent
   end
 
-  def login_form
-  end
+  def login_form; end
 
   def login
     user = User.find_by(

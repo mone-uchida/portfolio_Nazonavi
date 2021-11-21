@@ -10,10 +10,10 @@ class User < ApplicationRecord
     validates :password_digest
   end
 
-  validates :name, length: {maximum: 20}
+  validates :name, length: { maximum: 20 }
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, length: {maximum: 50},
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, length: { maximum: 50 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 

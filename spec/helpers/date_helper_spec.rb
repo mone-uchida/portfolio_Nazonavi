@@ -1,5 +1,5 @@
 require 'rails_helper'
- 
+
 describe DateHelper, type: :helper do
   let!(:title) { create(:title) }
   let!(:spot) { create(:spot) }
