@@ -2,16 +2,20 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'bin/*'
-    - "config/**/*"
+    - 'config/**/*'
     - 'lib/tasks/*'
     - 'vendor/**/*'
-    - "Gemfile"
+    - 'Gemfile'
+    - 'Rakefile'
   
 Metrics/LineLength:
   Max: 130
 
 Metrics/PerceivedComplexity:
   Max: 8
+
+Metrics/BlockLength:
+  Max: 100
 
 Metrics/MethodLength:
   Max: 30
