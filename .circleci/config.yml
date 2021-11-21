@@ -28,24 +28,23 @@ jobs:
   rubocop: 
     working_directory: ~/mysterysearch 
     docker: 
-      - image: circleci/ruby 
+      - image: circleci/ruby:3.0.1-node-browsers
     steps: 
       - checkout 
       - restore_cache: 
           keys: 
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
             - gemfiles-{{ .Branch }}- 
-      - run: bundle config --local path vendor/bundle 
+            - run: mv config/database.yml.ci config/database.yml 
       - run: 
           name: bundle install 
           command: bundle check || bundle config set --local clean 'true' 
       - save_cache: 
-          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
           paths: 
             - vendor/bundle 
       - run: 
           name: Run rubocop 
-          command: bundle exec rubocop 
+          command: docker-compose exec mysterysearch rubocop 
 
 workflows: 
   version: 2.1 
@@ -54,7 +53,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           dockerfile: Dockerfile.ci
           path: mysterysearch_mysterysearch_1
-          profile-name: portfolio
+          profile-name: user1
           repo: ${MY_APP_PREFIX}
           tag: '${CIRCLE_SHA1}'
       - rspec 
