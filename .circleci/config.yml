@@ -28,7 +28,7 @@ jobs:
   rubocop: 
     working_directory: ~/mysterysearch 
     docker: 
-      - image: circleci/ruby:3.0.1-node-browsers
+      - image: circleci/ruby
     steps: 
       - checkout 
       - restore_cache: 
