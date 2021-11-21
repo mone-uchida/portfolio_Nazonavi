@@ -35,12 +35,14 @@ jobs:
           keys: 
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
             - gemfiles-{{ .Branch }}- 
+      - run: bundle config --local path vendor/bundle 
       - run: 
           name: bundle install 
           command: bundle check || bundle config set --local clean 'true' 
       - save_cache: 
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
           paths: 
-            - vendor/bundle 
+            - vendor/bundle
       - run: 
           name: Run rubocop 
           command: docker-compose exec mysterysearch rubocop 
