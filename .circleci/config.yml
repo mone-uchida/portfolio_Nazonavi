@@ -35,7 +35,6 @@ jobs:
           keys: 
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
             - gemfiles-{{ .Branch }}- 
-            - run: mv config/database.yml.ci config/database.yml 
       - run: 
           name: bundle install 
           command: bundle check || bundle config set --local clean 'true' 
