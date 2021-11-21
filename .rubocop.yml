@@ -11,11 +11,14 @@ AllCops:
 Metrics/LineLength:
   Max: 130
 
+Metrics/AbcSize:
+  Max: 25
+
 Metrics/PerceivedComplexity:
   Max: 8
 
 Metrics/BlockLength:
-  Max: 100
+  Max: 120
 
 Metrics/MethodLength:
   Max: 30
@@ -27,4 +30,16 @@ Style/StringLiterals:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+GuardClause:
+  MinBodyLength: 4
+
+IfUnlessModifier:
+  Enabled: false
+
+Lint/UselessAssignment:
   Enabled: false
