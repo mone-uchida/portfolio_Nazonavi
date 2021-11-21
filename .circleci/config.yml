@@ -22,10 +22,6 @@ jobs:
             docker-compose up -d 
             docker exec mysterysearch curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000 
       - run: 
-          name: Setup database 
-          command: | 
-            docker-compose exec mysterysearch bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept' 
-      - run: 
           name: Run rspec 
           command: docker-compose exec mysterysearch rspec 
 
@@ -39,23 +35,24 @@ jobs:
           keys: 
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
             - gemfiles-{{ .Branch }}- 
-            - gemfiles-master- 
       - run: bundle config --local path vendor/bundle 
       - run: 
           name: bundle install 
           command: bundle check || bundle config set --local clean 'true' 
-      - run: 
-          name: Run rubocop 
-          command: bundle exec rubocop --parallel 
       - save_cache: 
           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }} 
           paths: 
             - vendor/bundle 
+      - run: 
+          name: Run rubocop 
+          command: bundle exec rubocop 
 
 workflows: 
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
+      - aws-cli/install:
+        override-installed: true
       - aws-ecr/build-and-push-image:
           dockerfile: Dockerfile.ci
           path: mysterysearch_mysterysearch_1
