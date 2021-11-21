@@ -1,19 +1,26 @@
-17 lines (15 sloc)  296 Bytes
-   
-inherit_from:
-  - .rubocop_airbnb.yml
-
 AllCops:
   Exclude:
     - 'db/**/*'
     - 'bin/*'
-    - 'config/environments/*'
-    - 'config/application.rb'
-    - 'config/initializers/*'
-    - 'config/spring.rb'
+    - "config/**/*"
     - 'lib/tasks/*'
     - 'vendor/**/*'
-    - 'path/ruby'
+    - "Gemfile"
   
 Metrics/LineLength:
   Max: 130
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
