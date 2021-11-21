@@ -15,10 +15,10 @@ class EventsController < ApplicationController
     if @events.present?
       number = @events.count
       flash[:notice] = "検索結果は#{number}件です"
-      render "events/index"
+      render 'events/index'
     else
-      flash[:notice] = "該当するイベントがありませんでした"
-      redirect_to "/home"
+      flash[:notice] = '該当するイベントがありませんでした'
+      redirect_to '/home'
     end
   end
 
@@ -28,10 +28,10 @@ class EventsController < ApplicationController
     if @events.present?
       number = @events.count
       flash[:notice] = "検索結果は#{number}件です"
-      render "events/index"
+      render 'events/index'
     else
-      flash[:notice] = "該当するイベントがありませんでした"
-      redirect_to "/home"
+      flash[:notice] = '該当するイベントがありませんでした'
+      redirect_to '/home'
     end
   end
 end

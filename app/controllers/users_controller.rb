@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = 'アカウントを作成しました'
       log_in @user
-      redirect_to "/home"
+      redirect_to '/home'
     else
       flash[:alert] = '入力内容にエラーがあります'
       render :new
@@ -31,12 +31,12 @@ class UsersController < ApplicationController
       password_digest: params[:password_digest]
     )
     if user
-      flash[:notice]='ログインしました'
+      flash[:notice] = 'ログインしました'
       log_in user
       redirect_to :home
     else
-      flash[:alert]='入力内容にエラーがあります'
-      render "login_form"
+      flash[:alert] = '入力内容にエラーがあります'
+      render 'login_form'
     end
   end
 
@@ -51,22 +51,22 @@ class UsersController < ApplicationController
     @user.profile = params[:profile]
 
     if @user.save
-      flash[:notice] = "プロフィールを編集しました"
+      flash[:notice] = 'プロフィールを編集しました'
       redirect_to edit_user_path(@user)
     else
-      flash[:alert] = "変更内容にエラーがあります"
+      flash[:alert] = '変更内容にエラーがあります'
       render :edit
     end
   end
 
   def destroy
     log_out
-    flash[:notice]="ログアウトしました"
-    redirect_to "/home"
+    flash[:notice] = 'ログアウトしました'
+    redirect_to '/home'
   end
 
   def posts_index
-   @posts = Post.where(user_id: current_user.id).recent
+    @posts = Post.where(user_id: current_user.id).recent
   end
 
   private

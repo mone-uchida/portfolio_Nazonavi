@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def index
     favorites = Favorite.where(user_id: current_user.id)
-    @finished_events = Event.where("finish_at < ?", Date.today)
+    @finished_events = Event.where('finish_at < ?', Date.today)
     @events = Event.where(id: favorites.ids).where.not(id: @finished_events.ids)
   end
 
