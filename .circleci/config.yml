@@ -52,7 +52,7 @@ workflows:
   build-test-and-deploy: 
     jobs: 
       - aws-cli/install:
-        override-installed: true
+          override-installed: true
       - aws-ecr/build-and-push-image:
           dockerfile: Dockerfile.ci
           path: mysterysearch_mysterysearch_1
