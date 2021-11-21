@@ -59,7 +59,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           dockerfile: Dockerfile.ci
           path: mysterysearch_mysterysearch_1
-          profile-name: mysterysearch
+          profile-name: portfolio
           repo: ${MY_APP_PREFIX}
           tag: '${CIRCLE_SHA1}'
       - rspec 
