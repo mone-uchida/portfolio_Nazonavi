@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Event", type: :system do
+RSpec.describe 'Event', type: :system do
   let!(:spot) { create(:spot) }
   let!(:title) { create(:title) }
   let!(:event) { create(:event) }
@@ -81,7 +81,7 @@ RSpec.describe "Event", type: :system do
             fill_in 'address', with: 'ニューヨーク'
             find('#address-submit').click
             expect(current_path).to eq home_path
-            expect(page).to have_content "該当するイベントがありませんでした"
+            expect(page).to have_content '該当するイベントがありませんでした'
           end
         end
       end
@@ -109,7 +109,7 @@ RSpec.describe "Event", type: :system do
             fill_in 'search', with: '花火'
             find('#search-submit').click
             expect(current_path).to eq home_path
-            expect(page).to have_content "該当するイベントがありませんでした"
+            expect(page).to have_content '該当するイベントがありませんでした'
           end
         end
       end

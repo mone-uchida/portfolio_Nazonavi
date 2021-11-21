@@ -26,7 +26,7 @@ RSpec.describe User, type: :system, js: true do
             fill_in 'user_password_digest', with: 'password'
             click_button 'アカウントを作成'
             expect(current_path).to eq users_path
-            expect(page).to have_content "入力内容にエラーがあります"
+            expect(page).to have_content '入力内容にエラーがあります'
           end
         end
         context 'メールアドレス未記入' do
@@ -37,7 +37,7 @@ RSpec.describe User, type: :system, js: true do
             fill_in 'user_password_digest', with: 'password'
             click_button 'アカウントを作成'
             expect(current_path).to eq users_path
-            expect(page).to have_content "入力内容にエラーがあります"
+            expect(page).to have_content '入力内容にエラーがあります'
           end
         end
         context '登録済メールアドレス' do
@@ -48,7 +48,7 @@ RSpec.describe User, type: :system, js: true do
             fill_in 'user_password_digest', with: 'password'
             click_button 'アカウントを作成'
             expect(current_path).to eq users_path
-            expect(page).to have_content "入力内容にエラーがあります"
+            expect(page).to have_content '入力内容にエラーがあります'
           end
         end
       end
@@ -87,7 +87,7 @@ RSpec.describe User, type: :system, js: true do
           expect(current_path).to eq home_path
           expect(page).to have_content 'ログアウトしました'
         end
-      end 
+      end
     end
   end
 end

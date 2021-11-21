@@ -5,28 +5,28 @@ RSpec.describe 'User', type: :request do
   let(:title) { create(:title) }
   let(:post) { create(:post) }
 
-  describe "User" do
+  describe 'User' do
     it 'GET login' do
-      get "/login"
-      expect(response).to have_http_status(200)
-    end
-  
-    it 'GET new' do
-      get new_user_path 
+      get '/login'
       expect(response).to have_http_status(200)
     end
 
-    describe "ログインユーザー" do
+    it 'GET new' do
+      get new_user_path
+      expect(response).to have_http_status(200)
+    end
+
+    describe 'ログインユーザー' do
       before do
-        allow_any_instance_of(ActionDispatch::Request).
-          to receive(:session).
-          and_return({ user_id: user.id })
+        allow_any_instance_of(ActionDispatch::Request)
+          .to receive(:session)
+          .and_return({ user_id: user.id })
       end
       it 'GET edit' do
         get edit_user_path(user)
-        expect(response).to have_http_status(200) 
+        expect(response).to have_http_status(200)
       end
-      
+
       it 'GET posts_index' do
         get users_posts_index_path(user)
         expect(response).to have_http_status(200)

@@ -5,7 +5,7 @@ RSpec.describe 'Event', type: :request do
   let!(:title) { create(:title) }
   let!(:spot) { create(:spot) }
 
-  describe "Event" do
+  describe 'Event' do
     it 'GET index' do
       get events_path
       expect(response).to have_http_status(200)
@@ -13,7 +13,7 @@ RSpec.describe 'Event', type: :request do
 
     it 'GET show' do
       get event_path(event)
-      expect(response).to have_http_status(200) 
+      expect(response).to have_http_status(200)
     end
   end
 end

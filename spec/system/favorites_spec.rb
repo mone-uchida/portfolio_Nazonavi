@@ -23,10 +23,10 @@ RSpec.describe Favorite, type: :system, js: true do
           it 'いいねの追加と解除ができる' do
             visit event_path(event)
             find('#favorite-create').click
-            expect(page).to have_css "#favorite-destroy"
+            expect(page).to have_css '#favorite-destroy'
             find('#favorite-destroy').click
-            expect(page).to have_css "#favorite-create"
-          end  
+            expect(page).to have_css '#favorite-create'
+          end
         end
       end
     end
