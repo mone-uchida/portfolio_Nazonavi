@@ -20,7 +20,7 @@
       <% if flash[:alert] %>
         <div id="alert"><%= flash[:alert] %></div>
       <% end %>
-    <div>
+    </div>
     <main>
       <% unless current_page?("/") %>
         <div class="right-section">
@@ -32,5 +32,8 @@
         <%= yield %>
       </div>
     </main>
+    <footer>
+      <p class="footer">Copyright © 2021 Nazonavi</p>
+    </footer>
   </body>
 </html>
