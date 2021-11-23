@@ -48,21 +48,30 @@ jobs:
           paths:
             - vendor/bundle
 
+  build_and_push_image:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ACCOUNT_URL
+          repo: "mysterysearch_app"
+          region: AWS_REGION
+          tag: "${CIRCLE_SHA1}"
+          path: ./backend/
+
 workflows: 
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ACCOUNT_URL
-          repo: ${MY_APP_PREFIX}
-          region: AWS_REGION
-          tag: "${CIRCLE_SHA1}"
-      - rspec 
-      - rubocop 
-      - aws-ecs/deploy-service-update:
-          family: 'mysterysearch_app' 
-          cluster-name: 'app' 
-          container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
+      - build-and-push-image:
           requires: 
             - rspec 
             - rubocop 
+      - aws-ecs/deploy-service-update:
+          family: 'mysterysearch_app' 
+          service-name: "mysterysearch_app"
+          cluster-name: 'app' 
+          container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
+          requires: 
+            - build-and-push-image
