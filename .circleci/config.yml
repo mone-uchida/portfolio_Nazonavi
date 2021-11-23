@@ -64,6 +64,8 @@ workflows:
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
+      - rspec 
+      - rubocop 
       - build-and-push-image:
           requires: 
             - rspec 
