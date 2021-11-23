@@ -254,10 +254,13 @@ main{
   margin:10px 10px;
   border-radius: 8px;
   text-decoration: none;
+  transition: background-color 0.3s;
 }
+
 .top-wrapper .button:hover {
   color: #fff;
-  background: #FF33CC;
+  background-color: #FF33CC;
+  transition: background-color 0.6s;
 }
 
 .guest-link{
