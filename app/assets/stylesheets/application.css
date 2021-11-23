@@ -27,6 +27,10 @@ body{
   font-family: 'Kiwi Maru', serif;
 }
 
+main{
+  padding-left: 10px;
+}
+
 ul{
   list-style: none;
 }
@@ -134,6 +138,15 @@ header a:hover{
   font-size: 18px;
 }
 
+/* footer */
+footer{
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  background: -webkit-linear-gradient(top right, #FF99FF , #FF9999 50%, #CC99FF); 
+  background-size: cover;
+}
+
 /* main */
 main{
   display: flex;
@@ -173,11 +186,13 @@ main{
 }
 
 .flash{
-  margin-left: 15px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 28px;
 }
 
 #notice{
-  color: #3399FF;
+  background-color: #99FFFF;
 }
 
 #alert{
