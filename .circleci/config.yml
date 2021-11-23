@@ -7,7 +7,8 @@ jobs:
   rspec: 
     working_directory: ~/mysterysearch 
     docker: 
-      - image: circleci/ruby 
+      image: circleci/ruby:3.0.1
+      resource_class: small
     steps: 
       - checkout 
       - setup_remote_docker 
