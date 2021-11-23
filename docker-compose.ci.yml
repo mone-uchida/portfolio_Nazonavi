@@ -27,9 +27,16 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
       REDIS_URL: "redis://redis:6379"
+      SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
     depends_on:
       - mysql
       - redis
+      - chrome
     networks:
       - default
     command: bundle exec rails server -b 0.0.0.0
+
+  chrome:
+    image: seleniarm/standalone-chromium:latest
+    ports:
+      - '4444:4444'
