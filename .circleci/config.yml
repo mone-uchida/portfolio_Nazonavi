@@ -48,7 +48,7 @@ jobs:
           paths:
             - vendor/bundle
 
-  build_and_push_image:
+  build-and-push-image:
     machine:
       image: ubuntu-1604:201903-01
     steps:
