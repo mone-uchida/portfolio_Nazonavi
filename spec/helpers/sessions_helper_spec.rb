@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SessionsHelper, type: :helper do
+RSpec.describe SessionsHelper, type: :helper do
   let(:user) { create(:user) }
 
   it 'ログイン時にuser.idがセッションされる' do
