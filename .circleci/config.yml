@@ -67,12 +67,6 @@ jobs:
           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-  
-  aws-ecr/build-and-push-image:
-    account-url: AWS_ECR_ACCOUNT_URL
-    repo: 'portfolio'
-    tag: '${CIRCLE_SHA1}'
-    path: ./mysterysearch/Dockerfile.ci
 
 workflows: 
   version: 2.1 
@@ -81,6 +75,10 @@ workflows:
       - rspec 
       - rubocop 
       - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          repo: 'portfolio'
+          tag: '${CIRCLE_SHA1}'
+          path: ./mysterysearch/Dockerfile.ci
           requires: 
             - rspec 
             - rubocop 
