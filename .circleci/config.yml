@@ -76,8 +76,9 @@ jobs:
           override-installed: true
       - checkout
       - aws-ecr/build-and-push-image:
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "${CIRCLE_SHA1}"
+          account-url: AWS_ECR_ACCOUNT_URL
+          repo: 'portfolio'
+          tag: '${CIRCLE_SHA1}'
 
 workflows: 
   version: 2.1 
