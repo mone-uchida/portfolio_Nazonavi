@@ -68,24 +68,16 @@ jobs:
           paths:
             - vendor/bundle
 
-  build-and-push-image:
-    steps:
-      - aws-cli/install:
-          override-installed: true
-      - checkout
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          repo: 'portfolio'
-          tag: '${CIRCLE_SHA1}'
-          path: pathToMyDockerfile
-
 workflows: 
   version: 2.1 
   build-test-and-deploy: 
     jobs: 
       - rspec 
       - rubocop 
-      - build-and-push-image:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          repo: 'portfolio'
+          tag: '${CIRCLE_SHA1}'
           requires: 
             - rspec 
             - rubocop 
@@ -95,4 +87,4 @@ workflows:
           cluster-name: 'app' 
           container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
           requires: 
-            - build-and-push-image
+            - aws-ecr/build-and-push-image
