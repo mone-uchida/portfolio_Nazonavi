@@ -78,7 +78,6 @@ workflows:
           account-url: AWS_ECR_ACCOUNT_URL
           repo: 'portfolio'
           tag: '${CIRCLE_SHA1}'
-          path: ./mysterysearch/Dockerfile.ci
           requires: 
             - rspec 
             - rubocop 
