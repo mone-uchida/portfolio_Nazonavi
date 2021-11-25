@@ -68,7 +68,7 @@ jobs:
           paths:
             - vendor/bundle
 
-  aws-ecr/build-and-push-image:
+  build-and-push-image:
     steps:
       - aws-cli/install:
           override-installed: true
@@ -85,7 +85,7 @@ workflows:
     jobs: 
       - rspec 
       - rubocop 
-      - aws-ecr/build-and-push-image:
+      - build-and-push-image:
           requires: 
             - rspec 
             - rubocop 
@@ -95,4 +95,4 @@ workflows:
           cluster-name: 'app' 
           container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
           requires: 
-            - aws-ecr/build-and-push-image
+            - build-and-push-image
