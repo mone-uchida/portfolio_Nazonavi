@@ -60,8 +60,9 @@ RSpec.describe Event, type: :model do
         event10 = create(:event, id: 10)
         event11 = create(:event, id: 11)
         user = create(:user, id: 1)
+        user = create(:user, id: 2)
         favorite = create(:favorite, event_id: 10, user_id: 1)
-        favorite2 = create(:favorite, event_id: 10, user_id: 1)
+        favorite2 = create(:favorite, event_id: 10, user_id: 2)
         favorite3 = create(:favorite, event_id: 11, user_id: 1)
         expect(Event.popular_events[0]).to eq event10
         expect(Event.popular_events[1]).to eq event11
