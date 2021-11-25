@@ -71,6 +71,8 @@ jobs:
     machine:
       image: ubuntu-1604:201903-01
     steps:
+      - aws-cli/install:
+          override-installed: true
       - checkout
       - aws-ecr/build-and-push-image:
           account-url: AWS_ACCOUNT_URL
