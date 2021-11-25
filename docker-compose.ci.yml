@@ -27,7 +27,6 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
       REDIS_URL: "redis://redis:6379"
-      SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
     depends_on:
       - mysql
       - redis
