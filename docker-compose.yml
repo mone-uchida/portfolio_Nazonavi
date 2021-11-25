@@ -29,7 +29,6 @@ services:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
-      SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
     depends_on:
       - mysql
       - chrome
