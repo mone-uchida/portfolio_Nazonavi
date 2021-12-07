@@ -83,9 +83,9 @@ workflows:
             - rspec 
             - rubocop 
       - aws-ecs/deploy-service-update:
-          family: 'mysterysearch_app' 
-          service-name: "mysterysearch_app"
-          cluster-name: 'app' 
-          container-image-name-updates: 'container=myapp,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
+          family: 'nazonavi' 
+          service-name: 'nazonavi'
+          cluster-name: 'portfolio' 
+          container-image-name-updates: 'container=nazonavi,image-and-tag=${AWS_ECR_ACCOUNT_URL}/portfolio:${CIRCLE_SHA1}' 
           requires: 
             - aws-ecr/build-and-push-image
