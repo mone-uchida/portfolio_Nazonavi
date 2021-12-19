@@ -11,7 +11,8 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          MYSQL_ROOT_HOST: 'mysql'
+          RAILS_ENV: test
+          MYSQL_HOST: 172.21.0.2
     steps: 
       - checkout 
       - restore_cache:
