@@ -1,6 +1,6 @@
 version: 2.1 
-orbs: 
-  aws-cli: circleci/aws-cli@2.0.6
+orbs:
+  ruby: circleci/ruby@0.1.2
 
 jobs: 
   rspec: 
@@ -78,7 +78,7 @@ jobs:
 
 workflows: 
   version: 2.1 
-  build-test-and-deploy: 
+  test-and-deploy: 
     jobs: 
       - rspec 
       - rubocop 
