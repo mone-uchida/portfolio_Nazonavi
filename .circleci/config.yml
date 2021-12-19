@@ -82,7 +82,7 @@ workflows:
     jobs: 
       - rspec 
       - rubocop 
-      - aws-ec2/deploy:
+      - aws-ec2-deploy:
           requires:
             - rspec
             - rubocop
