@@ -67,6 +67,9 @@ jobs:
             - vendor/bundle
   
   aws-ec2/deploy:
+    working_directory: ~/mysterysearch
+    docker:
+      - image: circleci/ruby:3.0.1
     steps:
       - add_ssh_keys:
           fingerprints:
