@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec mysterysearch bash -c 'yes n | bundle exec rails db:create --migrate --seed --sample --auto_accept'
+            docker-compose exec mysterysearch bash -c 'yes n | bundle exec rails db:create db:schema:load --trace
       - run:
           name: Run rspec
           command: docker-compose exec mysterysearch rspec
