@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Bundle install
           command: |
-          docker-compose exec mysterysearch bash | bundle install
+            docker-compose exec mysterysearch bash | bundle install
       - run:
           name: Setup database
           command: |
