@@ -15,7 +15,7 @@ jobs:
           MYSQL_HOST: 'db'
           MYSQL_PASSWORD: 'password'
           MYSQL_PORT: 3306
-      - image: circleci/mysql:5.7
+      - image: circleci/mysql:latest
         environment:
           MYSQL_USER: 'test'
           MYSQL_ROOT_PASSWORD: 'password'
