@@ -19,10 +19,15 @@ jobs:
           command: |
             set -x
             docker-compose up -d
+            docker exec mysterysearch curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+      - run:
+          name: Bundle install
+          command: |
+          docker-compose exec mysterysearch bash | bundle install
       - run:
           name: Setup database
           command: |
-            docker-compose exec mysterysearch bash | bundle exec rails db:create db:schema:load --trace
+            bundle exec rails db:create db:schema:load --trace
       - run:
           name: Run rspec
           command: docker-compose exec mysterysearch rspec
