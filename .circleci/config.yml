@@ -16,7 +16,7 @@ jobs:
           MYSQL_PASSWORD: 'password'
           MYSQL_PORT: 3306
       - image: circleci/mysql:latest
-        command: mysqld --default-authentication-plugin=mysql_native_password
+        command: mysqld --default-authentication-plugin=mysql_native_password　--sql-mode=STRICT_TRANS_TABLES
         environment:
           MYSQL_USER: 'test'
           MYSQL_ROOT_PASSWORD: 'password'
