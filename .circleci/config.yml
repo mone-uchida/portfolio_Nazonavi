@@ -6,7 +6,7 @@ jobs:
   rspec: 
     working_directory: ~/mysterysearch 
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:3.0.1
     steps: 
       - checkout
       - setup_remote_docker
@@ -19,7 +19,11 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec mysterysearch curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+            docker exec mysterysearch curl -4 --retry 5 --retry-delay 3 --retry-connrefused http://localhost:3000
+      - run:
+          name: Setup database
+          command: |
+            docker compose exec mysterysearch bash -c 'yes n | bundle exec rails db:create --migrate --seed --sample --auto_accept'
       - run:
           name: Run rspec
           command: docker-compose exec mysterysearch rspec
