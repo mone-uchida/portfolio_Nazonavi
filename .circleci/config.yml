@@ -94,7 +94,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - 25:95:5a:a6:fd:88:d7:d0:59:b3:9b:09:18:ca:1e:fe
-      - run: ssh -o StrictHostKeyChecking=no -p 22 ec2-user@${HOST_NAME} 'cd /var/www/nazonavi && git pull origin master'
+      - run: ssh -o StrictHostKeyChecking=no -p 22 ec2-user@${HOST_NAME} 'cd portfolio_Nazonavi / && git pull origin master'
 
 workflows: 
   version: 2.1 
