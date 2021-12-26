@@ -1,0 +1,10 @@
+<div class="event-box">
+  <div class="event-info">
+    <h3><%= link_to event.name,event_path(event) %></h3>
+      <p>チケット: 一人当たり<%= event.price %>円程度</p>
+      <p>会場: <%= link_to event.place, spot_path(event.spot_id) %></p>
+      <p>イベント開始日: <%= start_at_show(event) %></p>
+      <p>イベント終了日: <%= finish_at_show(event) %></p>
+  </div>
+  <img class="event-image" src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= event.image %>" >
+</div>

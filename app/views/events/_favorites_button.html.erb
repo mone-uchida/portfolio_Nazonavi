@@ -1,0 +1,16 @@
+<% if logged_in? %>
+  <% if current_user.favorite_find(event.id) %>
+    <%= link_to destroy_favorite_path(event.id), id: "favorite-destroy", method: :delete, remote: true do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+  <% else %>
+    <%= link_to create_favorite_path(event.id), id: "favorite-create", method: :post, remote: true do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to new_user_path, id: "favorite-new-user"  do %>
+    <i class="far fa-star"></i>
+  <% end %>
+<% end %>
+<%= event.favorites.count %>

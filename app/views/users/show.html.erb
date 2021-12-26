@@ -1,0 +1,27 @@
+<% content_for(:title, "自分の投稿") %>
+<div class="user-show-wrapper">
+  <div class="user-profile">
+    <div class="user-show-top">
+      <%= image_tag @user.icon, class: "user-icon" %>
+      <p><%= @user.name %></p>
+    </div>
+    <p class="profile"><%= @user.profile %></p>
+  </div>
+  <div class="user-posts">
+    <p><%= @user.name %>さんの投稿</p>
+    <% @posts.each do |post| %>
+      <div class="post-box">
+        <div class="post-name">
+          <%= post.name %>
+          <p>投稿日時 : <%= created_at_show(post) %></p>
+        </div>
+        <div class="post-content">
+          <%= post.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to posts_path do %>
+    <p class="index-link"><i class="fas fa-reply"></i>一覧ページに戻る</p>
+  <% end %>
+</div>

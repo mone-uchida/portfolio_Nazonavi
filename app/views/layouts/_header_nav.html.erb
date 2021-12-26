@@ -1,0 +1,15 @@
+<div class="header-nav">
+  <ul class="nav-items">
+    <li><%= link_to "なぞなびとは", introduction_path %></li>
+    <li><%= link_to "地図から探す", home_path %></li>
+    <li><%= link_to "イベント一覧", events_path %></li>
+    <li><%= link_to "投稿を見る", posts_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to "投稿する", new_post_path %></li>
+      <li><%= link_to "ログアウト", logout_path, id: "logout", method: "delete" %></li>
+    <% else %>
+      <%= link_to "ログイン", login_path, id: "login-link" %>
+      <%= link_to "新規登録", new_user_path, id: "user-new-link" %>
+    <% end %>
+  <ul>
+</div>

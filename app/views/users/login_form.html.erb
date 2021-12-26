@@ -1,0 +1,24 @@
+<div class="main login">
+  <h3>ログイン</h3>
+  <div class="form">
+    <%= form_with url: :login, local: true do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label :email ,"メールアドレス" %></th>
+          <td><%= f.text_field :email, class: "form-input" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :password_digest ,"パスワード" %></th>
+          <td><%= f.text_field :password_digest ,class: "form-input" %></td>
+        </tr>
+      </table>
+      <%= f.submit "ログイン", class: "submit" %>
+      <p><%= link_to "アカウントをお持ちでない方はこちら", :new_user %></p>
+    <% end %>
+  </div>
+  <div class="guest-login">
+    <p>☆ こちらをご利用ください ☆</p>
+    <p>メールアドレス : guest@guest.com</p>
+    <p>パスワード : guest_password</p>
+  </div>
+</div>

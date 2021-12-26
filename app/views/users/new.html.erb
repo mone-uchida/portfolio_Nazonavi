@@ -1,0 +1,23 @@
+<div class="user new">
+  <h3>新しいアカウントを作成</h3>
+  <%= form_with model: @user, class: "form", local: true do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td><%= f.text_field :name, class: "form-input" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email ,"メールアドレス" %></th>
+        <td><%= f.text_field :email, class: "form-input" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password_digest ,"パスワード" %></th>
+        <td><%= f.text_field :password_digest, class: "form-input" %></td>
+      </tr>
+    </table>
+    <div>
+      <%= f.submit "アカウントを作成", class: "submit" %>
+      <p><%= link_to "アカウントをお持ちの方はこちら", :login %></p>
+    </div>
+  <% end %>
+</div>

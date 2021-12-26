@@ -1,0 +1,15 @@
+<% content_for(:title, "自分の投稿") %>
+<h1>過去の投稿</h1>
+<% @posts.each do |post| %>
+  <div class="post-box">
+    <div class="post-name">
+      <%= post.name %>
+      <p>投稿日時 : <%= created_at_show(post) %></p>
+    </div>
+    <div class="post-content">
+      <%= post.content %>
+    </div>
+    <%= link_to "編集", edit_post_path(post.id) %>
+    <%= link_to "削除", post_path(post.id), id: "delete-#{post.id}", method: :delete %>
+  </div>
+<% end %>

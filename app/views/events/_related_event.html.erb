@@ -1,0 +1,5 @@
+<ul>
+  <li><%= link_to related_event.place,spot_path(related_event.spot_id) %><li>
+  <li>イベント開始日: <%= start_at_show(related_event) %></li>
+  <li>イベント終了日: <%= finish_at_show(related_event) %></li>
+</ul>

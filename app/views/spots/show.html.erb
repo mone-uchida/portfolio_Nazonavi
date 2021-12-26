@@ -1,0 +1,31 @@
+<% content_for(:title, "スポット - #{@spot.place}") %>
+<div class="spot">
+  <h3><%= @spot.place %></h3>
+  <div class="spot-wrapper">
+    <div class="spot-info">
+      <ul>
+        <li>所在地 : <%= @spot.address %></li>
+        <li><%= link_to "公式サイトはこちらから", @spot.url %></li>
+      </ul>
+      <h4>開催中のイベント</h4>
+        <% @related_events.each do |event| %>
+          <ul>  
+            <li><%= link_to event.name, event_path(event.id) %></li>
+            <% if event.start_at.present? %>
+              <li>イベント開始日: <%= event.start_at.strftime('%Y年%m月%d日') %></li>
+            <% else %>
+              <li>イベント開始日: - </li>
+            <% end %>    
+            <% if event.finish_at.present? %>
+              <li>イベント終了日: <%= event.finish_at.strftime('%Y年%m月%d日') %></li>
+            <% else %>
+              <li>イベント終了日: - </li>
+            <% end %>
+          </ul>
+        <% end %>
+    </div>
+    <div id="spot-map"></div>
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api[:google_map_key] %>&callback=initMap" async defer></script>
+<%= javascript_pack_tag 'spots/map' %>

@@ -1,0 +1,108 @@
+version: 2.1 
+orbs:
+  ruby: circleci/ruby@0.1.2
+
+jobs: 
+  rspec: 
+    working_directory: ~/mysterysearch 
+    docker:
+      - image: circleci/ruby:3.0.1-node-browsers
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: 'test'
+          MYSQL_HOST: 'db'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_PORT: 3306
+      - image: circleci/mysql:latest
+        command: mysqld --default-authentication-plugin=mysql_native_password --sql-mode=strict_trans_tables
+        environment:
+          MYSQL_USER: 'test'
+          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_DATABASE: 'mysterysearch_test'
+          MYSQL_HOST: 'db'
+        name: db
+    parallelism: 1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+
+      - run:
+          name: install yarn
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      - run:
+          name: run tests
+          command: |
+            bundle exec rspec
+
+  rubocop:
+    working_directory: ~/mysterysearch
+    docker:
+      - image: circleci/ruby:3.0.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config --local path vendor/bundle
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop --parallel
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+  
+  aws-ec2-deploy:
+    working_directory: ~/mysterysearch
+    docker:
+      - image: circleci/ruby:3.0.1
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - 25:95:5a:a6:fd:88:d7:d0:59:b3:9b:09:18:ca:1e:fe
+      - run: ssh -o StrictHostKeyChecking=no -p 22 ec2-user@${HOST_NAME} 'cd portfolio_Nazonavi / && git pull origin main'
+
+workflows: 
+  version: 2.1 
+  test-and-deploy: 
+    jobs: 
+      - rspec 
+      - rubocop 
+      - aws-ec2-deploy:
+          requires:
+            - rspec
+            - rubocop

@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MysterySearch</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= include_gon %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+      <%= render partial: "layouts/header" %>
+    </header>
+    <div class="flash">
+      <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div id="alert"><%= flash[:alert] %></div>
+      <% end %>
+    </div>
+    <main>
+      <% unless current_page?("/") %>
+        <div class="right-section">
+          <h2>人気のイベント</h2>
+          <%= render partial: "layouts/popular_event", collection: @popular_events %>
+        </div>
+      <% end %>
+      <div class="main-section">
+        <%= yield %>
+      </div>
+    </main>
+    <footer>
+      <p class="footer">Copyright © 2021 Nazonavi</p>
+    </footer>
   </body>
 </html>
