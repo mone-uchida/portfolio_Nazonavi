@@ -172,6 +172,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
+    kgio (2.11.4)
     libv8-node (16.10.0.0-aarch64-linux)
     libv8-node (16.10.0.0-arm64-darwin)
     listen (3.7.0)
@@ -245,6 +246,7 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rainbow (3.0.0)
+    raindrops (0.20.0)
     rake (13.0.6)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
@@ -328,6 +330,9 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
+    unicorn (6.1.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -379,6 +384,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
+  unicorn
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
