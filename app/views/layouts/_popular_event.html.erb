@@ -1,7 +1,7 @@
 <div class="popular-event">
   <div class="info">
     <%= link_to popular_event.name, event_path(popular_event) %>
-    <img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= popular_event.image %>" >
+    <%= image_tag popular_event.image %>
     <p>会場: <%= link_to popular_event.place, spot_path(popular_event.spot_id) %><p>
     <p>イベント開始日: <%= start_at_show(popular_event) %></p>
     <p>イベント終了日: <%= finish_at_show(popular_event) %></p>

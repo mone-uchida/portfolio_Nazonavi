@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="show-event-image">
-      <img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" >
+      <%= image_tag @event.image %>
     </div>
   </div>
   <div class="related-post-wrapper">
