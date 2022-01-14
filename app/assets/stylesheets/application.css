@@ -498,6 +498,7 @@ main{
 
 .user-show-top{
   display: flex;
+  margin-top: 20px;
   margin-left:15px;
 }
 
@@ -516,7 +517,7 @@ main{
 
 .profile{
   border-bottom: 1.5px dashed #A9A9A9;
-  width:60%;
+  width:90%;
 }
 
 .index-link{
