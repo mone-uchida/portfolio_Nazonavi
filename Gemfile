@@ -62,6 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'react-rails'
 gem "aws-sdk-s3", require: false
 gem 'activeadmin'
+gem 'devise'
 gem 'gon'
 gem 'pry-rails'
 gem 'rexml'
