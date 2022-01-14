@@ -15,13 +15,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  host: localhost
+  host: mysql
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: mysterysearch_development
+  database: nazonavi
+  socket: /var/run/mysqld/mysqld.sock
 
 test:
   <<: *default
@@ -51,5 +52,6 @@ production:
   <<: *default
   database: <%= Rails.application.credentials.db[:database] %>
   username: <%= Rails.application.credentials.db[:username] %>
+  host: localhost
   password: <%= Rails.application.credentials.db[:password] %>
   socket: <%= Rails.application.credentials.db[:socket] %>

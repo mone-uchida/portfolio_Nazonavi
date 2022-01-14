@@ -300,11 +300,12 @@ main{
 }
 
 /* main - home - introduction */
-.introduction{
+.intro-top{
   text-align: center;
 }
 
 .introduction h2{
+  text-align: center;
   font-size: 26px;
   color: #CC3366;
 }
@@ -314,6 +315,7 @@ main{
 }
 
 .introduction h3{
+  text-align: center;
   margin: auto;
   width:45%;
   font-size: 20px;
@@ -498,6 +500,7 @@ main{
 
 .user-show-top{
   display: flex;
+  margin-top: 20px;
   margin-left:15px;
 }
 
@@ -516,7 +519,7 @@ main{
 
 .profile{
   border-bottom: 1.5px dashed #A9A9A9;
-  width:60%;
+  width:90%;
 }
 
 .index-link{

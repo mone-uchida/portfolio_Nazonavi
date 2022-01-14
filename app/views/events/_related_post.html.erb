@@ -3,7 +3,7 @@
     <%= image_tag related_post.user_icon, class: "post-icon" %>
     <div class="post-user-name">
       <%= link_to user_path(related_post.user) do %>
-        <%= related_post.name %>さん
+        <%= related_post.user_name %>さん
       <% end %>
     </div>
     <div class="post-create">

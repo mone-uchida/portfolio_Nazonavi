@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="show-event-image">
-      <img src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= @event.image %>" >
+      <%= image_tag @event.image %>
     </div>
   </div>
   <div class="related-post-wrapper">
@@ -35,7 +35,7 @@
       <h3>このイベントに関する投稿</h3>
       <%= render partial: "events/related_post", collection: @related_posts %>
     <% else %>
-      <p>投稿はありません。</p>
+      <p>このイベントに関する投稿はありません。</p>
     <% end %>
   </div>
 </div>

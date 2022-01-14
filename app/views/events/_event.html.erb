@@ -6,5 +6,5 @@
       <p>イベント開始日: <%= start_at_show(event) %></p>
       <p>イベント終了日: <%= finish_at_show(event) %></p>
   </div>
-  <img class="event-image" src="https://<%= Rails.application.credentials.aws[:s3_URL] %>/titles/event_image/<%= event.image %>" >
+  <%= image_tag event.image, class: "event-image" %>
 </div>
