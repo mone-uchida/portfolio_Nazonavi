@@ -300,11 +300,12 @@ main{
 }
 
 /* main - home - introduction */
-.introduction{
+.intro-top{
   text-align: center;
 }
 
 .introduction h2{
+  text-align: center;
   font-size: 26px;
   color: #CC3366;
 }
@@ -314,6 +315,7 @@ main{
 }
 
 .introduction h3{
+  text-align: center;
   margin: auto;
   width:45%;
   font-size: 20px;
