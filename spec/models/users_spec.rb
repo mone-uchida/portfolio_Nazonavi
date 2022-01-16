@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
       end
 
       it '50文字以上ある' do
-        user = build(:user, email: ('#{a'* 48'}.com'))
+        user = build(:user, email:('a' * 45 + 'a@.com'))
         user.valid?
         expect(user.errors[:email]).to include('is too long (maximum is 50 characters)')
       end
