@@ -108,4 +108,4 @@ workflows:
             - rubocop
           filters:
             branches:
-              only: master
+              only: main
