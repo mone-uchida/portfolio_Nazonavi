@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - 'db/**/*'
     - 'bin/*'
@@ -34,6 +35,9 @@ Style/FrozenStringLiteralComment:
 
 Style/Lambda:
   EnforcedStyle: literal
+
+Style/StringConcatenation:
+  Enabled: false
 
 GuardClause:
   MinBodyLength: 4

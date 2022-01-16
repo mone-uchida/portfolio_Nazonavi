@@ -20,13 +20,8 @@ class Event < ApplicationRecord
   scope :recent, -> { order(id: :desc) }
 
   scope :popular_events, -> {
-      find(
-    Favorite.group(:event_id)
-    .order('count(event_id) desc')
-    .limit(5)
-    .pluck(:event_id)
-    )
-  } 
+    find(Favorite.order('count(event_id) desc').limit(5).group(:event_id).pluck(:event_id))
+  }
 
   def self.related(event)
     where(title_id: event.title_id).where.not(id: event.id)

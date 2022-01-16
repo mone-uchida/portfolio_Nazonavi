@@ -43,7 +43,6 @@ RSpec.describe 'Event', type: :system do
       describe '詳細ページが表示される' do
         it 'イベント情報が表示される' do
           expect(page).to have_content title.name
-          expect(page).to have_content title.image
           expect(page).to have_content event.start_at.strftime('%Y年%m月%d日')
           expect(page).to have_content event.finish_at.strftime('%Y年%m月%d日')
           expect(page).to have_content spot.place
