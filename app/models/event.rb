@@ -21,9 +21,9 @@ class Event < ApplicationRecord
 
   scope :popular_events, -> {
       find(
-    Favorite.group(:event_id)
-    .order('count(event_id) desc')
+    Favorite.order('count(event_id) desc')
     .limit(5)
+    .group(:event_id)
     .pluck(:event_id)
     )
   } 
