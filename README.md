@@ -1,24 +1,45 @@
-# README
+# なぞなび
+なぞなびとは、日本全国の謎解きイベントに関する情報サイトです。  
+日本全国の謎解きイベントについて、地図やキーワードから検索することができます。  
+投稿機能を使うことで、イベントの情報をユーザー同士で共有することや、イベントの感想を記録することができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## URL
+http://ec2-13-112-145-99.ap-northeast-1.compute.amazonaws.com
 
-Things you may want to cover:
+# 開発環境
+* Ruby 3.0.1
+* Ruby on Rails 6.1.4.1
+* MySQL 5.7
+* Nginx
+* AWS
+  * EC2
+* Docker/Docker-compose
+* CircleCI CI/CD
+* Rspec
+* Rubocop
+* Google Maps API
 
-* Ruby version
+# 機能
+* ユーザー登録/ログイン機能
+* イベントの検索
+  * googlemapを利用した地図検索
+  * キーワード検索
+* イベントのいいね機能(Ajax)
+* 投稿機能
+* メニュー表示 
+  * プルダウン(React.js)
 
-* System dependencies
+# テスト
+* Rspec
+  * 単体テスト(model)
+  * 機能テスト(request) 
+  * 統合テスト(feature)
+* Rubocop
 
-* Configuration
+# Note
+* ゲスト用のログインアカウント
+  *  email: guest@guest.com
+  *  password: guest_password
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 作成者
+* 内田　望音
