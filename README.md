@@ -1,4 +1,6 @@
 # なぞなび
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mone-uchida/portfolio_Nazonavi?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/mone-uchida/portfolio_Nazonavi?style=flat-square)
 なぞなびとは、日本全国の謎解きイベントに関する情報サイトです。  
 日本全国の謎解きイベントについて、地図やキーワードから検索することができます。  
 投稿機能を使うことで、イベントの情報をユーザー同士で共有することや、イベントの感想を記録することができます。
