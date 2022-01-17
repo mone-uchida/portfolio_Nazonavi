@@ -1,6 +1,6 @@
 <% content_for(:title, "イベント - #{@event.name}") %>
 <div class="event show">
-  <div class="event-top">　
+  <div class="event-top">
     <h2><%= @event.name %></h2>
     <div class="favorite-button" id="event_<%= @event.id %>">
       <%= render "events/favorites_button", event: @event %>
@@ -14,7 +14,9 @@
           <li>チケット: 一人当たり<%= @event.price %>円程度</li>
           <li>イベント開始日: <%= start_at_show(@event) %></li>
           <li>イベント終了日: <%= finish_at_show(@event) %></li>
-          <li><%= link_to "公式サイトはこちらから", @event.url %></li>
+          <% if @event.url.present? %>
+            <li><%= link_to "公式サイトはこちらから", @event.url %></li>
+          <% end %>
           <li><%= @event.note %></li>
           <li>掲載元: <%= @event.source %></li>
         </ul>

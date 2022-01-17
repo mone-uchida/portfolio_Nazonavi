@@ -147,6 +147,10 @@ footer{
   background-size: cover;
 }
 
+footer p{
+  margin-top: 0;
+}
+
 /* main */
 main{
   display: flex;
