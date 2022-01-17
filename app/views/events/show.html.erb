@@ -1,6 +1,6 @@
 <% content_for(:title, "イベント - #{@event.name}") %>
 <div class="event show">
-  <div class="event-top">　
+  <div class="event-top">
     <h2><%= @event.name %></h2>
     <div class="favorite-button" id="event_<%= @event.id %>">
       <%= render "events/favorites_button", event: @event %>
