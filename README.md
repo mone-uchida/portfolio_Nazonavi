@@ -46,7 +46,7 @@
   * 統合テスト(feature)
 * Rubocop
 
-# Note
+# 備考
 * ゲスト用のログインアカウント (アプリケーション上でもご確認いただけます)
   *  email: guest@guest.com
   *  password: guest_password
