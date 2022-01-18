@@ -22,6 +22,8 @@ http://ec2-13-112-145-99.ap-northeast-1.compute.amazonaws.com
 * Rubocop
 * Google Maps API
 
+# 構成図
+
 # 機能
 * ユーザー登録/ログイン機能
 * イベントの検索
@@ -29,10 +31,11 @@ http://ec2-13-112-145-99.ap-northeast-1.compute.amazonaws.com
   * キーワード検索
 * イベントのいいね機能(Ajax)
 * 投稿機能
-* メニュー表示 
+  * 作成/編集/削除
+* メニュー表示
   * プルダウン(React.js)
 
-### テスト
+## テスト
 * Rspec
   * 単体テスト(model)
   * 機能テスト(request) 
