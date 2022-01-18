@@ -2,9 +2,9 @@ class FavoritesController < ApplicationController
   before_action :set_event
 
   def index
-    favorites = Favorite.where(user_id: current_user.id)
+    favorite_event_ids = Favorite.where(user_id: current_user.id).pluck(:event_id)
     @finished_events = Event.where('finish_at < ?', Date.today)
-    @events = Event.where(id: favorites.ids).where.not(id: @finished_events.ids)
+    @events = Event.where(id: favorite_event_ids).where.not(id: @finished_events.ids)
   end
 
   def create
