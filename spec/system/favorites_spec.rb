@@ -34,7 +34,7 @@ RSpec.describe Favorite, type: :system, js: true do
         describe 'いいね一覧' do
           before do
             visit event_path(event)
-            expect(page).to have_css '#favorite-destroy'
+            find('#favorite-create').click
             visit user_favorites_path(user)
           end
 
