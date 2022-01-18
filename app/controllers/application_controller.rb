@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def set_popular_events
-    @popular_events = Event.open.popular_events
+    @popular_events = Event.popular_events
   end
 end
