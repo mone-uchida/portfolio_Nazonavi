@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :system, js: true do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'User' do
     describe 'ログイン前' do

@@ -1,17 +1,11 @@
 <div class="map-wrapper">
   <h1>地図からイベントを探す</h1>
   <div class="area-suggest">
-    <form>表示エリアを選択
-      <select id="area">
-        <option value="Hokkaido">北海道</option>
-        <option value="Tohoku">東北</option>
-        <option value="Kanto">関東</option>
-        <option value="Chubu">中部</option>
-        <option value="Kinki">近畿</option>
-        <option value="Shikoku">四国</option>
-        <option value="Chugoku">中国</option>
-        <option value="Kyushu">九州</option>
-        <option value="Okinawa">沖縄</option>
+    <form>都道府県を選択
+      <select id="prefecture">
+        <% @prefectures.each do |prefecture| %>
+          <option value="<%= prefecture.name %>"><%= prefecture.name %></option>
+        <% end %>
       </select>
       <input type="button" value="検索" onClick="onButtonClick()">
     </form>

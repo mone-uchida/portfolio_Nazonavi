@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     gon.spots = Spot.all.select(:id, :lat, :lng).order(id: :asc)
     gon.titles = Title.all.select(:id, :name, :image).order(id: :asc)
     gon.s3_url = "https://#{Rails.application.credentials.aws[:s3_URL]}/titles/event_image/"
+    @prefectures = Prefecture.all
   end
 
   def introduction; end

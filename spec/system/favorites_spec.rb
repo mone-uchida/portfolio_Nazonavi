@@ -8,6 +8,7 @@ RSpec.describe Favorite, type: :system, js: true do
   let!(:other_spot) { create(:other_spot) }
   let!(:other_title) { create(:other_title) }
   let!(:other_event) { create(:other_event) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'Favorite' do
     describe 'いいね機能' do

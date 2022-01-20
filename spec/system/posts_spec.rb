@@ -7,6 +7,7 @@ RSpec.describe Post, type: :system do
   let!(:other_title) { create(:other_title, id: 2) }
   let!(:post) { create(:post, id: 1) }
   let!(:other_post) { create(:other_post, id: 2) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'Post' do
     describe 'ユーザーがログイン' do
