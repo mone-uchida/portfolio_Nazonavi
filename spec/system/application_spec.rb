@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Application', type: :system do
   let(:user) { create(:user) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'Header' do
     it 'トップページでは表示されない' do

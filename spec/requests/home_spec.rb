@@ -4,6 +4,7 @@ RSpec.describe 'Home', type: :request do
   let(:user) { create(:user) }
   let(:title) { create(:title) }
   let(:post) { create(:post) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'Home' do
     describe 'ゲストユーザー' do

@@ -11,6 +11,7 @@ RSpec.describe 'Event', type: :system do
   let!(:other_event) { create(:other_event) }
   let!(:related_spot) { create(:related_spot) }
   let!(:related_event) { create(:related_event) }
+  let!(:prefecture) { create(:prefecture) }
 
   describe 'Event' do
     describe 'Index' do
