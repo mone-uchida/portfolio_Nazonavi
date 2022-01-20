@@ -56,6 +56,6 @@ window.onButtonClick = function geocode() {
   let geocoder = new google.maps.Geocoder();
   let prefecture = document.getElementById('prefecture').value;
   geocoder.geocode({'address': prefecture}, function(results) {
-    map.setCenter(new.google.maps.LatLng(results[0].geometry.location));
+    map.setCenter(new google.maps.LatLng(results[0].geometry.location));
   })
 }
