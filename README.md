@@ -7,7 +7,7 @@
 * 投稿機能を使って、他のユーザーと感想を共有することも可能です。
 ### 使用例
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/84611383/149773444-f532b01d-c096-4d19-908c-1171835f4c57.gif" width="80%">
+  <img src="https://user-images.githubusercontent.com/84611383/150291016-e02e6445-4b64-4e75-9372-36ecc0203b3f.gif" width="80%">
 </p>
 
 # 開発環境
