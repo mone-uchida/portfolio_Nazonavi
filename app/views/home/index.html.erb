@@ -3,7 +3,7 @@
   <div class="area-suggest">
     <form>都道府県を選択
       <select id="prefecture">
-        <% @prefectures.each_with_index do |prefecture| %>
+        <% @prefectures.each do |prefecture| %>
           <option value="<%= prefecture.name %>"><%= prefecture.name %></option>
         <% end %>
       </select>
