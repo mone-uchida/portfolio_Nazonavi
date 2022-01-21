@@ -22,6 +22,8 @@
 * Rspec
 * Rubocop
 * Google Maps API
+  * Maps JavaScript API
+  * Geocoding API
 
 # 構成図
 <p align="center">
@@ -30,8 +32,11 @@
 
 # 機能
 * ユーザー登録/ログイン機能
+  * アイコン画像の選択 (React.js)
 * イベントの検索
-  * 地図検索(googlemapAPI)
+  * 地図検索
+    * 地図表示 (Maps JavaScript API)
+    * エリア検索 (Geocoding API)
   * キーワード検索
 * イベントのいいね機能(Ajax)
 * 投稿機能
