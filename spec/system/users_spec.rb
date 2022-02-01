@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :system, js: true do
   let(:user) { create(:user) }
-  let(:other_user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:prefecture) { create(:prefecture) }
 
   describe 'User' do
@@ -53,6 +53,13 @@ RSpec.describe User, type: :system, js: true do
           end
         end
       end
+      describe 'アクセス制限' do
+        it 'ユーザー編集ページへのアクセスするとログイン画面に遷移する' do
+          visit edit_user_path(other_user)
+          expect(current_path).to eq login_path
+          expect(page).to have_content 'ログインが必要です'
+        end
+      end
     end
     describe 'ログイン後' do
       before { login(user) }
@@ -78,6 +85,13 @@ RSpec.describe User, type: :system, js: true do
             click_button '変更した内容を保存する'
             expect(current_path).to eq user_path(user)
             expect(page).to have_content '変更内容にエラーがあります'
+          end
+        end
+        describe 'アクセス制限' do
+          it '他のユーザーの編集ページへのアクセスするとログイン画面に遷移する' do
+            visit edit_user_path(other_user)
+            expect(current_path).to eq login_path
+            expect(page).to have_content '閲覧権限がないため、表示できませんでした'
           end
         end
       end
