@@ -55,7 +55,7 @@ RSpec.describe User, type: :system, js: true do
       end
       describe 'アクセス制限' do
         it 'ユーザー編集ページへのアクセスするとログイン画面に遷移する' do
-          visit user_edit_path(other_user)
+          visit edit_user_path(other_user)
           expect(current_path).to eq login_path
           expect(page).to have_content 'ログインが必要です'
         end
@@ -89,7 +89,7 @@ RSpec.describe User, type: :system, js: true do
         end
         describe 'アクセス制限' do
           it '他のユーザーの編集ページへのアクセスするとログイン画面に遷移する' do
-            visit user_edit_path(other_user)
+            visit edit_user_path(other_user)
             expect(current_path).to eq login_path
             expect(page).to have_content '閲覧権限がないため、表示できませんでした'
           end
