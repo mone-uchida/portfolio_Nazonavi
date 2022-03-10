@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout',       to: 'users#destroy'
   get 'search',           to: 'events#search'
   get 'address',          to: 'events#address_search'
+  get 'tag/:id',         to: 'events#tag_search'
   post '/search/:id',     to: 'posts#event_search', as: 'event_search'
   post 'favorite/:id',    to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id',  to: 'favorites#destroy', as: 'destroy_favorite'
