@@ -189,6 +189,26 @@ main{
   flex-basis: 75%;
 }
 
+.tag{
+  width: 100%;
+  margin: 1.5%;
+  float: left;
+}
+
+.tag-item{
+  margin: 3px;
+  padding: 3px;
+  text-decoration: none;
+  color: #33CC66;
+  border: 2px solid #33CC66;
+  border-radius: 3px;
+}
+
+.tag a:hover{
+  color: #FFCC00;
+  border: 2px solid #FFCC00;
+}
+
 .flash{
   font-size: 18px;
   text-align: center;

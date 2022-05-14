@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   belongs_to :title
 
   has_many :favorites
+  has_many :event_tags, dependent: :destroy
+  has_many :tags, through: :event_tags
 
   with_options presence: true do
     validates :spot_id

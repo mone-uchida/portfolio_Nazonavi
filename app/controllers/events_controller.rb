@@ -24,13 +24,25 @@ class EventsController < ApplicationController
 
   def address_search
     @events = Event.open.joins(:spot).where('spots.address LIKE ?', "%#{params[:address]}%").recent
-
     if @events.present?
       number = @events.count
       flash[:notice] = "検索結果は#{number}件です"
       render 'events/index'
     else
       flash[:notice] = '該当するイベントがありませんでした'
+      redirect_to '/home'
+    end
+  end
+
+  def tag_search
+    @tag = Tag.find_by(id: params[:id])
+    @events = Event.find(EventTag.where(tag_id: params[:id]).group(:event_id).pluck(:event_id))
+    if @events.present?
+      number = @events.count
+      flash[:notice] = "##{@tag.name} に関するイベントは#{number}件です"
+      render 'events/index'
+    else
+      flash[:notice] = "##{@tag.name}に関連するイベントがありませんでした"
       redirect_to '/home'
     end
   end

@@ -30,6 +30,11 @@
         </div>
       <% end %>
       <div class="main-section">
+        <div class="tag">
+          <% Tag.all.each do |tag| %>
+            <%= link_to "##{tag.name}", "/tag/#{tag.id}", class: "tag-item" %>
+          <% end %>
+        </div>
         <%= yield %>
       </div>
     </main>
