@@ -1,4 +1,4 @@
-# なぞなび<span>　</span>![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![GitHub last commit](https://img.shields.io/github/last-commit/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![CircleCI](https://circleci.com/gh/mone-uchida/portfolio_Nazonavi.svg?style=svg&circle-token=a43d934c72e1ee08a63589ac8b79eb33e62b2768)
+# なぞなび<span>　</span>![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![GitHub last commit](https://img.shields.io/github/last-commit/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>
 なぞなびとは、日本全国の謎解きイベントに関する情報系アプリーションです。
 #### URL<span> </span>http://ec2-13-112-145-99.ap-northeast-1.compute.amazonaws.com
 ### 特徴
