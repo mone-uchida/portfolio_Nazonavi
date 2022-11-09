@@ -1,4 +1,4 @@
-app_path = File.expand_path('/var/www/portfolio_Nazonavi')
+app_path = File.expand_path('/var/www/portfolio_Nazonavi/portfolio_Nazonavi')
 
 #アプリケーションサーバの性能を決定する
 worker_processes 1
