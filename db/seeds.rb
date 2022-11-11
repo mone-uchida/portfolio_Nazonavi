@@ -9,4 +9,4 @@ AdminUser.create!(
   email: Rails.application.credentials.active_admin[:email],
   password: Rails.application.credentials.active_admin[:password],
   password_confirmation: Rails.application.credentials.active_admin[:password]
-) if Rails.env.development?
+)
