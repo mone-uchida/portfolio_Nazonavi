@@ -1,10 +1,10 @@
-# なぞなび<span>　</span>![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![GitHub last commit](https://img.shields.io/github/last-commit/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>
+# なぞなび<span>　</span>![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![GitHub last commit](https://img.shields.io/github/last-commit/mone-uchida/portfolio_Nazonavi?style=flat-square)<span> </span>![CircleCI](https://circleci.com/gh/mone-uchida/portfolio_Nazonavi.svg?style=svg&circle-token=a43d934c72e1ee08a63589ac8b79eb33e62b2768)
 なぞなびとは、日本全国の謎解きイベントに関する情報系アプリーションです。
-#### URL<span> </span>http://ec2-13-112-145-99.ap-northeast-1.compute.amazonaws.com
+#### URL<span> </span>http://ec2-35-77-165-28.ap-northeast-1.compute.amazonaws.com
 ### 特徴
 * 地図やキーワードからイベントを検索することができます。
-* 気になるイベントをいいねして、マイページから見返すことができます。
-* 投稿機能を使って、他のユーザーと感想を共有することも可能です。
+* 気になるイベントをいいねで保存できます。
+* 他のユーザーと感想を共有することも可能です。
 ### 使用例
 <p align="center">
   <img src="https://user-images.githubusercontent.com/84611383/150291016-e02e6445-4b64-4e75-9372-36ecc0203b3f.gif" width="80%">
