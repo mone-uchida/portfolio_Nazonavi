@@ -165,10 +165,9 @@ main{
 .popular-event{
   margin: 15px 5px;
   padding: 10px;
-  border-radius: 7px;
+  border-radius: 5px;
   height:150px;
-  border:3px solid #FFD700;
-  background-color: #FFFFE0;
+  background-color: #FFF0F5;
 }
 
 .popular-event img{
@@ -195,18 +194,22 @@ main{
   float: left;
 }
 
+.tag-text{
+ display: inline-block;
+}
+
 .tag-item{
   margin: 3px;
   padding: 3px;
   text-decoration: none;
-  color: #33CC66;
-  border: 2px solid #33CC66;
+  color: #FF66FF;
+  border: 2px solid #FF66FF;
   border-radius: 3px;
 }
 
 .tag a:hover{
-  color: #FFCC00;
-  border: 2px solid #FFCC00;
+  color: #9966FF;
+  border: 2px solid #9966FF;
 }
 
 .flash{

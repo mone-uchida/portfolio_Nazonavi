@@ -31,11 +31,14 @@
         </div>
       <% end %>
       <div class="main-section">
-        <div class="tag">
-          <% Tag.all.each do |tag| %>
-            <%= link_to "##{tag.name}", "/tag/#{tag.id}", class: "tag-item" %>
-          <% end %>
-        </div>
+        <% if %w[home events].any? { |name| current_page?(send("#{name}_path")) } %>
+          <div class="tag">
+            <p class="tag-text">注目のタグ→</p>
+            <% Tag.all.each do |tag| %>
+              <%= link_to "##{tag.name}", "/tag/#{tag.id}", class: "tag-item" %>
+            <% end %>
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </main>
