@@ -1,5 +1,6 @@
 <div class="popular-event">
   <div class="info">
+    <%= "#{popular_event_counter+1}" %>
     <%= link_to popular_event.name, event_path(popular_event) %>
     <%= image_tag popular_event.image %>
     <p>会場: <%= link_to popular_event.place, spot_path(popular_event.spot_id) %><p>
